@@ -21,38 +21,42 @@
             <div class="col">
             <div class="card w-100 mt-5" style="border-style:solid; border-left-width:10px; border-left-color: black;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><b>Card title</b></h5>
+                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a></span>
+                    <p class="card-text mt-2">With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supportin....</p>
                 </div>
             </div>
             <div class="card w-100 mt-3" style="border-style:solid; border-left-width:10px; border-left-color: black;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><b>Card title</b></h5>
+                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a></span>
+                    <p class="card-text mt-2">With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supportin....</p>
                 </div>
             </div>
             <div class="card w-100 mt-3" style="border-style:solid; border-left-width:10px; border-left-color: green;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><b>Card title</b></h5>
+                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a></span>
+                    <p class="card-text mt-2">With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supportin....</p>
                 </div>
             </div>
             <div class="card w-100 mt-3" style="border-style:solid; border-left-width:10px; border-left-color: green;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><b>Card title</b></h5>
+                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a></span>
+                    <p class="card-text mt-2">With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supportin....</p>
                 </div>
             </div>
             <div class="card w-100 mt-3" style="border-style:solid; border-left-width:10px; border-left-color: blue;">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title"><b>Card title</b></h5>
+                    <span>November 23, 2016 / by <a href="#" target="_blank">Alex Parker</a></span>
+                    <p class="card-text mt-2">With supporting text below as a natural lead-in to additional content.With supporting text below as a natural lead-in to additional content.With supportin....</p>
                 </div>
             </div>
             </div>
-            <div class="col-5">
-                <div class="list-rigth">
-                    <div class="list-group mt-5" id="list-tab" role="tablist" style="width: 10rem; text-align: right;">
+            <div class="col-3">
+                    <div class="list-group mt-5" id="list-tab" role="tablist" style="width: 10rem; text-align: right; margin-left: 14rem;">
                         <a class="list-group-item list-group-item-action active" style="border-radius: 10px;" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
                         <a class="list-group-item list-group-item-action" id="list-profile-list" style="border-radius: 10px;" style="border-radius: 10px;" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
                         <a class="list-group-item list-group-item-action" id="list-messages-list" style="border-radius: 10px;" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
