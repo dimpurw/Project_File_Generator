@@ -14,7 +14,7 @@
     background-color: #000;
     overflow-x: hidden;
     
-    background-image: url('../asset/img/landing.jpg');
+    background-image: url('../asset/img/ld.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
 }
@@ -27,6 +27,9 @@
     color: #FFBE4B;
     font-size: 48px;
     font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 20px;
+
 }
 .login-form h3{
     color: #254C9A;
