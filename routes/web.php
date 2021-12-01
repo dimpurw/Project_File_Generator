@@ -21,3 +21,8 @@ Route::get('/listsurat', function () {
     return view('user.listsurat');
 });
 
+Route::get('/listsurat/create', function () {
+    return view('user.createtemplate');
+});
+
+
