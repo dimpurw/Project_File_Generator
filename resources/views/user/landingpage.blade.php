@@ -13,7 +13,7 @@
   <div class="sidenav">
       </div>
       <div class="main">
-         <div class="col-md-9">
+         <div class="col-md-9 col-sm-12">
             <div class="login-form">
             <h2>FILE GENERATOR</h2>
             <h3>Internal DevT Brain</h3>
