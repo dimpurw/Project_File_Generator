@@ -1,20 +1,49 @@
   body {
     font-family: "inter";
+    font-style: normal;
     background: #E5E5E5;
 }
 
+.surat{
+    cursor: pointer;
+    transition: all 1s;
+}
+.surat:hover{
+    transform: scale(1.1);
+}
+
+.category{
+    cursor: pointer;
+}
+
+.category:hover{
+    transform: scale(1.1);
+}
+
+#btn-back-to-top {
+    position: fixed;
+    border-radius: 4px;
+    bottom: 20px;
+    height: 5rem;
+    width: 5rem;
+
+}
+
+.category{
+    border-radius: 6px 0px 0px 6px;
+}
 
 .main-head{
     height: 150px;
     background: #FFF;
-   
+
 }
 
 .sidenav {
     height: 100%;
     background-color: #000;
     overflow-x: hidden;
-    
+
     background-image: url('../asset/img/ld.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -74,7 +103,7 @@ color: #616161;
 @media screen and (max-height: 450px) {
     .sidenav {
         padding-top: 15px;}
-    
+
 }
 
 @media screen and (max-width: 450px) {
@@ -85,7 +114,7 @@ color: #616161;
 
 @media screen and (min-width: 768px){
     .main{
-        margin-left: 55%; 
+        margin-left: 55%;
     }
 
     .sidenav{
@@ -108,8 +137,8 @@ color: #616161;
     margin-top: 20%;
     padding: 60px;
     color: #fff;
-    
-    
+
+
 }
 
 .login-main-text h2{
