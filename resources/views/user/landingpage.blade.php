@@ -1,102 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<style>
-    body {
-    font-family: "Lato", sans-serif;
-}
-
-
-
-.main-head{
-    height: 150px;
-    background: #FFF;
-   
-}
-
-.sidenav {
-    height: 100%;
-    background-color: #000;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-
-.main {
-    padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-}
-
-@media screen and (max-width: 450px) {
-    .login-form{
-        margin-top: 10%;
-    }
-
-    .register-form{
-        margin-top: 10%;
-    }
-}
-
-@media screen and (min-width: 768px){
-    .main{
-        margin-left: 40%; 
-    }
-
-    .sidenav{
-        width: 40%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-    }
-
-    .login-form{
-        margin-top: 80%;
-    }
-
-    .register-form{
-        margin-top: 20%;
-    }
-}
-
-
-.login-main-text{
-    margin-top: 20%;
-    padding: 60px;
-    color: #fff;
-    background-image: url('lp.jpg');
-    background-repeat: repeat-y;
-    
-}
-
-.login-main-text h2{
-    font-weight: 300;
-}
-
-.btn-black{
-    background-color: #000 !important;
-    color: #fff;
-}
-</style>
-<head>
+<html>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+<link href="https://fonts.googleapis.com/css?family=Inter:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/main.css')}}" rel="stylesheet" type="text/css">
 
-<div class="sidenav">
-         <div class="login-main-text">
-            <h2>Application<br> Login Page</h2>
-            <p>Login or register from here to access.</p>
-         </div>
+<head>
+  <title></title>
+</head>
+<body>
+  <div class="sidenav">
       </div>
       <div class="main">
-         <div class="col-md-4 col-sm-12">
+         <div class="col-md-9">
             <div class="login-form">
             <h2>FILE GENERATOR</h2>
-            <p>Internal DevT Brain</p>
+            <h3>Internal DevT Brain</h3>
                <form>
                   <div class="form-group">
                      <label>Email</label>
@@ -106,13 +26,16 @@
                      <label>Password</label>
                      <input type="password" class="form-control" placeholder="This is a text">
                   </div>
+                  <p><a href="#">Forget Password?</a></p>
                   <button type="submit" class="btn btn-black">Login</button>
                </form>
-                <div>
+                <div class="info">
                     <p>Tidak punya akun?<a href="">minta Akun ke Admin?</a></p>
                 </div>
             </div>
          </div>
       </div>
-</head>
+</body>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </html>

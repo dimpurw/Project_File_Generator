@@ -1,0 +1,118 @@
+  body {
+    font-family: "inter";
+}
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+    background-image: url('../asset/img/landing.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+.login-form h2{
+    color: #FFBE4B;
+    font-size: 48px;
+    font-weight: 900;
+}
+.login-form h3{
+    color: #254C9A;
+    font-size: 32px;
+    font-weight: 300;
+}
+.form-group{
+   font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #7A7A7A;
+}
+.form-group p{
+    font-size: 16px;
+line-height: 19px;
+
+/* 800 */
+
+color: #2C5282;
+}
+.info{
+    font-weight: 300;
+font-size: 18px;
+line-height: 22px;
+margin-top:100px;
+/* identical to box height */
+
+letter-spacing: 0.02em;
+
+color: #616161;
+}
+.login-form 
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+    
+    
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
