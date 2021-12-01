@@ -13,7 +13,7 @@
     height: 100%;
     background-color: #000;
     overflow-x: hidden;
-    padding-top: 20px;
+    
     background-image: url('../asset/img/landing.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
@@ -45,41 +45,43 @@
 .form-group p{
     font-size: 16px;
 line-height: 19px;
-
-/* 800 */
-
 color: #2C5282;
 }
-.info{
-    font-weight: 300;
+.form-control{
+    height: 40px;
+}
+
+ .info{
+margin-top:30%;
+text-align: center;
+}
+
+.info p{
+font-weight: 300;
 font-size: 18px;
 line-height: 22px;
-margin-top:100px;
-/* identical to box height */
-
 letter-spacing: 0.02em;
-
 color: #616161;
 }
-.login-form 
+.login-form form{
+        margin-top: 15%;
+    }
 
 @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
+    .sidenav {
+        padding-top: 15px;}
+    
 }
 
 @media screen and (max-width: 450px) {
     .login-form{
         margin-top: 10%;
     }
-
-    .register-form{
-        margin-top: 10%;
-    }
 }
 
 @media screen and (min-width: 768px){
     .main{
-        margin-left: 40%; 
+        margin-left: 55%; 
     }
 
     .sidenav{
@@ -91,12 +93,10 @@ color: #616161;
     }
 
     .login-form{
-        margin-top: 80%;
+        margin-top: 30%;
     }
 
-    .register-form{
-        margin-top: 20%;
-    }
+
 }
 
 
@@ -113,6 +113,8 @@ color: #616161;
 }
 
 .btn-black{
-    background-color: #000 !important;
-    color: #fff;
+    height: 45px;
+   background-color: #20284C;
+        width: 100%;
+        color: #fff
 }
