@@ -26,7 +26,7 @@ html, body{
 <div class="container-fluid">
     <form>
         <div class="form-group">
-            <div class="group1" style="display: block" id="1">
+            <div class="group1" style="display: block">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
@@ -49,7 +49,7 @@ html, body{
                 </div>
                 <hr>
             </div>
-            <div class="group2" style="display: none" id="2">
+            <div class="group2" style="display: none">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
@@ -72,7 +72,7 @@ html, body{
                 </div>
                 <hr>
             </div>   
-            <div class="group3" style="display: none" id="3">
+            <div class="group3" style="display: none">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
