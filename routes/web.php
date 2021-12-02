@@ -33,5 +33,8 @@ Route::get('/listsurat/personal', function () {
 Route::get('/listsurat/create', function () {
     return view('user.createtemplate');
 });
+Route::get('/listsurat/generate', function () {
+    return view('user.generate');
+});
 
 
