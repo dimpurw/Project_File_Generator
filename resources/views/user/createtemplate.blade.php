@@ -139,31 +139,31 @@
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
 		<div id='response_tempatps'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_tanggalps'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_tujuanps'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_alamatps'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_salampembuka'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_isisurat'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_salampenutup'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_pengirimsurat'>
-			<p></p>
+			<p>halo</p>
 		</div>
 		<div id='response_tandatangan'>
-			<p></p>
+			<p>halo</p>
 		</div>
 			</div>
 	<div class="form-row pull-right">
@@ -188,11 +188,19 @@
 </div>
 
         <script>
-       var inputBox = document.getElementById('tempatps');
+        $(document).ready(function(){
+            $('#tempatps').keyup(function(){
+                var name = $('#tempatps').val();
 
-	inputBox.onkeyup = function(){
-    document.getElementById('response_tempatps').innerHTML = inputBox.value;
-		}
+                $.ajax({
+                    type: 'post',
+                    data: {ajax: 1,name: tempatps},
+                    success: function(response){
+                        $('#response').text( response);
+                    }
+                });
+            });
+        });
         </script>
 
 
