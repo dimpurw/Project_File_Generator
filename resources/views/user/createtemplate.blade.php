@@ -139,31 +139,31 @@
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
 		<div id='response_tempatps'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_tanggalps'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_tujuanps'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_alamatps'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_salampembuka'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_isisurat'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_salampenutup'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_pengirimsurat'>
-			<p>halo</p>
+			<p></p>
 		</div>
 		<div id='response_tandatangan'>
-			<p>halo</p>
+			<p></p>
 		</div>
 			</div>
 	<div class="form-row pull-right">
@@ -188,19 +188,11 @@
 </div>
 
         <script>
-        $(document).ready(function(){
-            $('#tempatps').keyup(function(){
-                var name = $('#tempatps').val();
+       var inputBox = document.getElementById('tempatps');
 
-                $.ajax({
-                    type: 'post',
-                    data: {ajax: 1,name: tempatps},
-                    success: function(response){
-                        $('#response').text( response);
-                    }
-                });
-            });
-        });
+	inputBox.onkeyup = function(){
+    document.getElementById('response_tempatps').innerHTML = inputBox.value;
+		}
         </script>
 
 
