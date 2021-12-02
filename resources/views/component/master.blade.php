@@ -11,10 +11,10 @@
   <title>FILE GENERATOR</title>
 </head>
 <body>
-<div id="wrapper">
-	<div id="content-wrapper" class="d-flex flex-column">
+<!-- <div id="wrapper">
+	<div id="content-wrapper" class="d-flex flex-column"> -->
 		@yield('content')
-	</div>
+	<!-- </div> -->
 </div>
 </body>
 <script>
@@ -45,4 +45,5 @@
                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
                crossorigin="anonymous">
 </script>
+@yield('page-script')
 </html>

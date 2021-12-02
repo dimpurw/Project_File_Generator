@@ -27,7 +27,7 @@ html, body{
 <div class="container-fluid">
     <form>
         <div class="form-group">
-            <div class="group1" style="display: block" id="1">
+            <div class="group1" style="display: block">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
@@ -50,7 +50,7 @@ html, body{
                 </div>
                 <hr>
             </div>
-            <div class="group2" style="display: none" id="2">
+            <div class="group2" style="display: none">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
@@ -73,7 +73,7 @@ html, body{
                 </div>
                 <hr>
             </div>   
-            <div class="group3" style="display: none" id="3">
+            <div class="group3" style="display: none">
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
@@ -97,18 +97,23 @@ html, body{
                 <hr>
             </div>
         </div>
-            <!-- <a href="#" id="toPage2" style="display: block">Next</a>
-            <a href="#" id="toPage1" style="display: none">Previous</a>
-            <a href="#" id="toPage3" style="display: none">Next</a>
-            <a href="#" id="toPage2-2" style="display: none">Previous</a> -->
         <div class="row justify-content-end">
+            <div class="my-auto mx-auto">
+                <a href="#" id="toPage1" style="display: none">1</a>
+                <a href="#" id="toPage2" style="display: inline-block">2</a>
+                <a href="#" id="toPage1-2" style="display: none">1</a>
+                <a href="#" id="toPage3" style="display: inline-block">3</a>
+                <a href="#" id="toPage2-2" style="display: none">2</a>
+            </div>
             <div class="button-generate">
                 <input type="image" name="submit" src="{{asset('asset/img/Generate.png')}}">
             </div>   
         </div>
     </form>
 </div>
-<!-- <script>
+@endsection
+@section('page-script')
+<script>
             $('#toPage2').click(function() {
                 $('.group1').show();
                 $('.group2').show();
@@ -122,7 +127,7 @@ html, body{
                 $('.group2').hide();
                 $('#toPage2').show();
                 $('#toPage1').hide();
-                $('#toPage3').hide();
+                $('#toPage3').show();
             });
             
             $('#toPage2-2').click(function() {
@@ -131,6 +136,7 @@ html, body{
                 $('.group3').hide();
                 $('#toPage2').hide();
                 $('#toPage2-2').hide();
+                $('#toPage1-2').hide();
                 $('#toPage1').show();
                 $('#toPage3').show();
             });
@@ -141,8 +147,20 @@ html, body{
                 $('.group3').show();
                 $('#toPage2-2').show();
                 $('#toPage2').hide();
+                $('#toPage1-2').show();
                 $('#toPage1').hide();
                 $('#toPage3').hide();
             });
-</script> -->
+            
+            $('#toPage1-2').click(function() {
+                $('.group1').show();
+                $('.group2').hide();
+                $('.group3').hide();
+                $('#toPage2-2').hide();
+                $('#toPage1-2').hide();
+                $('#toPage2').show();
+                $('#toPage1').hide();
+                $('#toPage3').show();
+            });
+</script>
 @endsection
