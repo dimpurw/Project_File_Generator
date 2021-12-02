@@ -1,11 +1,3 @@
-<?php 
-// Handle AJAX request (start)
-if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
-    echo $_POST['tempatps'];
-    exit;
-}
-// Handle AJAX request (end)
-?>
 @extends('component.master')
 @section('content')
 <style>
@@ -30,7 +22,8 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
 		<div class="collapse navbar-collapse" id="navcol-1">
 			<div class="nav navbar-nav w-100 justify-content-between">
 				<div class="nav-item"><p>Text Option</p>
-				<select>
+					<div class="row col-lg-12">
+						<select class="custom-select col-5">
 					<option value="10">10</option>
 					<option value="11" selected>11</option>
 					<option value="12">12</option>
@@ -43,26 +36,26 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
 					<option value="19">19</option>
 					<option value="20">20</option>
 				</select>
-				<select>
+				<select class="custom-select col-7">
 					<option value="Bold">Bold</option>
 					<option value="Regular" selected>Regular</option>
 					<option value="Italic">12</option>
 				</select>
-
+					</div>
 				</div>
 				<div class="nav-item"><p>Line Height and Spacing</p>
-					<select>
+					<select class="custom-select col-5">
 						<option value="16">16</option>
 					</select>
-					<select>
+					<select class="custom-select col-5">
 						<option value="4%">4%</option>
 					</select>
 				</div>
 				<div class="nav-item"><p>Paragraph spacing and Alignment</p>
-					<select>
+					<select class="custom-select col-5">
 						<option value="auto">Auto</option>
 					</select>
-					<select>
+					<select class="custom-select col-5">
 						<option value="left">Left</option>
 					</select>
 				</div>
