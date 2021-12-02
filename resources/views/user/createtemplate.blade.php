@@ -4,6 +4,9 @@
 @extends('component.master')
 @section('content')
 <style>
+.content{
+	color: #7A7A7A;
+}
 .bg-warning{
 	/*width: 1440px;*/
 	height: 96px;
@@ -15,9 +18,17 @@
 .card{
 	height: 100%;
 }
-
-<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
+.box{
+	 width: 50px;
+	 height: 50px;
+	 padding-top: 10px;
+	 margin-right: 10px;
+}
+.active{
+	background-color: #FFE5B6;
+}
 </style>
+<div class="content">
 <!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
 	<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
@@ -29,12 +40,12 @@
 					<div class="row col-lg-12">
 						<select class="custom-select col-5">
 					<option value="10">10</option>
-					<option value="11" selected>11</option>
+					<option value="11">11</option>
 					<option value="12">12</option>
 					<option value="13">13</option>
 					<option value="14">14</option>
 					<option value="15">15</option>
-					<option value="16">16</option>
+					<option value="16" selected>16</option>
 					<option value="17">17</option>
 					<option value="18">18</option>
 					<option value="19">19</option>
@@ -65,9 +76,9 @@
 				</div>
 				<div class="nav-item" >
 					<div class="d-flex align-items-center" style="padding-top: 23px">
-						<a class="navbar" href="#" ><img src="{{asset('../asset/img/view.png')}}" style="width: 28px;height: 21px"></a>
-					<a class="navbar active" href="#" ><img src="{{asset('../asset/img/edit.png')}}" style="width: 30px;background-color: #FFE5B6; background-size: 72px 72px"></a>
-					<a class="navbar" href="#" ><img src="{{asset('../asset/img/delete.png')}}" style="width: 28px"></a>
+					<a class="box btn" href="#" ><img src="{{asset('../asset/img/view.png')}}" style="width: 28px;"></a>
+					<a class="box btn active" href="#" ><img src="{{asset('../asset/img/edit.png')}}" style="width: 28px;"></a>
+					<a class="box btn" href="#" ><img src="{{asset('../asset/img/delete.png')}}" style="width: 28px"></a>
 					</div>
 				</div>
 			</div>
@@ -173,6 +184,7 @@
     </div>
   </div>
   </form>
+</div>
 </div>
 
         <script>
