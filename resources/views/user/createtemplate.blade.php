@@ -17,6 +17,9 @@
 }
 .card{
 	height: 100%;
+	background: #FFFFFF;
+border: 1px solid #C4C4C4;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .box{
 	 width: 50px;
