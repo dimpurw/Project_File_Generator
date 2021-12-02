@@ -1,3 +1,6 @@
+<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"> -->
 @extends('component.master')
 @section('content')
 <style>
@@ -12,6 +15,7 @@
 .card{
 	height: 100%;
 }
+
 <a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
 </style>
 <!-- Navbar-->
@@ -59,10 +63,12 @@
 						<option value="left">Left</option>
 					</select>
 				</div>
-				<div class="nav-item">
-					<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/view.png')}}" style="width: 72px"></a>
-					<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/edit.png')}}" style="width: 28px"></a>
-					<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/delete.png')}}" style="width: 28px"></a>
+				<div class="nav-item" >
+					<div class="d-flex align-items-center" style="padding-top: 23px">
+						<a class="navbar" href="#" ><img src="{{asset('../asset/img/view.png')}}" style="width: 28px;height: 21px"></a>
+					<a class="navbar active" href="#" ><img src="{{asset('../asset/img/edit.png')}}" style="width: 30px;background-color: #FFE5B6; background-size: 72px 72px"></a>
+					<a class="navbar" href="#" ><img src="{{asset('../asset/img/delete.png')}}" style="width: 28px"></a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -109,7 +115,7 @@
   </div>
    <div class="form-group">
     <label >Tanda Tangan</label>
-    <select class="form-control" id="tandatangan" name="tandatangan" style="height: 100%">
+    <select class="form-control" id="tandatangan" name="tandatangan">
     <option value="Ada">Ada</option>
       <option value="Tidak Ada" selected>Tidak Ada</option>
     </select>
