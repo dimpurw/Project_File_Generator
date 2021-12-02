@@ -8,17 +8,17 @@
     <div class="container">
         <div class="row">
             <div class="col mb-3">
-                <div class="media surat mt-5" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
-                    <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
+                <div class="media surat mt-5" id="list-surat1" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
+                    <div class="media-body ml-5" id="deskrip-surat1" onclick="listIcon('icon-display', 1);">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Perjanjian Kerjasama</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
                         <p class="card-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
                     </div>
-                    <div class="media-body ml-5" id="delListSurat" style="display: none;">
+                    <div class="media-body ml-5" id="del-surat1" style="display: none;">
                         <p class="card-text" style="padding: 4rem; text-align: center; color: #FF0000; font-weight: 500; font-size: 18px;">Surat Perjanjian Kerjasama has been Deleted <i class="fa fa-trash-o"></i></p>
                     </div>
                     <div class="icon-surat" style="width: 25rem;">
-                        <div id="icon-display" class="icon-display" style="display: none;">
+                        <div id="icon-display1" class="icon-display" style="display: none;">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -43,7 +43,7 @@
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
-                                onclick="deleteList()"
+                                onclick="deleteList(1);"
                                 id="" style="background: #FDC0C0; border-radius: 4px;"
                                 >
                                 <i class="fa fa-trash-o"></i>
@@ -51,17 +51,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
-                    <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
+                <div class="media surat" id="list-surat2" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
+                    <div class="media-body ml-5" id="deskrip-surat2" onclick="listIcon('icon-display', 2)">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Kunjungan Kerja</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
                         <p class="card-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
                     </div>
-                    <div class="media-body ml-5" id="delListSurat" style="display: none;">
+                    <div class="media-body ml-5" id="del-surat2" style="display: none;">
                         <p class="card-text" style="padding: 4rem; text-align: center; color: #FF0000; font-weight: 300; font-size: 18px;">Surat Perjanjian Kerjasama has been Deleted <i class="fa fa-trash-o"></i></p>
                     </div>
                     <div class="icon-surat" style="width: 25rem;">
-                        <div id="icon-display" class="icon-display" style="display: none;">
+                        <div id="icon-display2" class="icon-display" style="display: none;">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -86,7 +86,7 @@
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
-                                onclick="deleteList()"
+                                onclick="deleteList(2)"
                                 id="" style="background: #FDC0C0; border-radius: 4px;"
                                 >
                                 <i class="fa fa-trash-o"></i>
@@ -94,17 +94,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FFFBE;">
-                    <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
+                <div class="media surat" id="list-surat3" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FFFBE;">
+                    <div class="media-body ml-5" id="deskrip-surat3" onclick="listIcon('icon-display', 3)">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Undangan</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
                         <p class="card-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
                     </div>
-                    <div class="media-body ml-5" id="delListSurat" style="display: none;">
+                    <div class="media-body ml-5" id="del-surat3" style="display: none;">
                         <p class="card-text" style="padding: 4rem; text-align: center; color: #FF0000; font-weight: 300; font-size: 18px;">Surat Perjanjian Kerjasama has been Deleted <i class="fa fa-trash-o"></i></p>
                     </div>
                     <div class="icon-surat" style="width: 25rem;">
-                        <div id="icon-display" class="icon-display" style="display: none;">
+                        <div id="icon-display3" class="icon-display" style="display: none;">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -129,7 +129,7 @@
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
-                                onclick="deleteList()"
+                                onclick="deleteList(3)"
                                 id="" style="background: #FDC0C0; border-radius: 4px;"
                                 >
                                 <i class="fa fa-trash-o"></i>
@@ -137,17 +137,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FFFBE;">
-                    <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
+                <div class="media surat" id="list-surat4" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FFFBE;">
+                    <div class="media-body ml-5" id="deskrip-surat4" onclick="listIcon('icon-display', 4)">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Pemberitahuan</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
                         <p class="card-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
                     </div>
-                    <div class="media-body ml-5" id="delListSurat" style="display: none;">
+                    <div class="media-body ml-5" id="del-surat4" style="display: none;">
                         <p class="card-text" style="padding: 4rem; text-align: center; color: #FF0000; font-weight: 300; font-size: 18px;">Surat Perjanjian Kerjasama has been Deleted <i class="fa fa-trash-o"></i></p>
                     </div>
                     <div class="icon-surat" style="width: 25rem;">
-                        <div id="icon-display" class="icon-display" style="display: none;">
+                        <div id="icon-display4" class="icon-display" style="display: none;">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -172,7 +172,7 @@
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
-                                onclick="deleteList()"
+                                onclick="deleteList(4)"
                                 id="" style="background: #FDC0C0; border-radius: 4px;"
                                 >
                                 <i class="fa fa-trash-o"></i>
@@ -180,17 +180,17 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FB7FF;">
-                    <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
+                <div class="media surat" id="list-surat5" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FB7FF;">
+                    <div class="media-body ml-5" id="deskrip-surat5" onclick="listIcon('icon-display', 5)">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Pemberitahuan</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
                         <p class="card-text mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
                     </div>
-                    <div class="media-body ml-5" id="delListSurat" style="display: none;">
+                    <div class="media-body ml-5" id="del-surat5" style="display: none;">
                         <p class="card-text" style="padding: 4rem; text-align: center; color: #FF0000; font-weight: 300; font-size: 18px;">Surat Perjanjian Kerjasama has been Deleted <i class="fa fa-trash-o"></i></p>
                     </div>
                     <div class="icon-surat" style="width: 25rem;">
-                        <div id="icon-display" class="icon-display" style="display: none;">
+                        <div id="icon-display5" class="icon-display" style="display: none;">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -215,7 +215,7 @@
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
-                                onclick="deleteList()"
+                                onclick="deleteList(5)"
                                 id="" style="background: #FDC0C0; border-radius: 4px;"
                                 >
                                 <i class="fa fa-trash-o"></i>
@@ -225,20 +225,7 @@
                 </div>
             </div>
             <div class="col-3">
-                <button
-                    type="button"
-                    class="btn btn-floating btn-lg"
-                    id="btn-back-to-top" style="background-color: #4D6EFF; color: white;"
-                    >
-                    <i class="fa fa-plus-circle"></i>
-                </button>
-                    <div class="list-group mt-5" id="list-tab" role="tablist" style="width: 14rem; text-align: right; right: 0; position: fixed;">
-                        <a class="list-group-item active category" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">All</a>
-                        <a class="list-group-item list-group-item-action category" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Perusahaan</a>
-                        <a class="list-group-item list-group-item-action category" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Internal</a>
-                        <a class="list-group-item list-group-item-action category" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Personal</a>
-                    </div>
-                </div>
+                @include('component.sidebar')
             </div>
         </div>
     </div>

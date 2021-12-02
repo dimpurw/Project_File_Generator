@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col mb-3">
-                <div class="media surat mt-5" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
+                <div class="media surat mt-5" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FB7FF;">
                     <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Perjanjian Kerjasama</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
+                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FB7FF;">
                     <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Kunjungan Kerja</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
@@ -94,7 +94,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FFFBE;">
+                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FB7FF;">
                     <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Undangan</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FFFBE;">
+                <div class="media surat" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #9FB7FF;">
                     <div class="media-body ml-5" id="deskripSurat" onclick="listIcon()">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat Pemberitahuan</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
@@ -225,20 +225,7 @@
                 </div>
             </div>
             <div class="col-3">
-                <button
-                    type="button"
-                    class="btn btn-floating btn-lg"
-                    id="btn-back-to-top" style="background-color: #4D6EFF; color: white;"
-                    >
-                    <i class="fa fa-plus-circle"></i>
-                </button>
-                    <div class="list-group mt-5" id="list-tab" role="tablist" style="width: 14rem; text-align: right; right: 0; position: fixed;">
-                        <a class="list-group-item active category" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">All</a>
-                        <a class="list-group-item list-group-item-action category" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Perusahaan</a>
-                        <a class="list-group-item list-group-item-action category" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Internal</a>
-                        <a class="list-group-item list-group-item-action category" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Personal</a>
-                    </div>
-                </div>
+                @include('component.sidebar')
             </div>
         </div>
     </div>

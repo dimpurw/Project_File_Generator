@@ -18,7 +18,16 @@ Route::get('/', function () {
 });
 
 Route::get('/listsurat', function () {
-    return view('user.listsurat');
+    return view('user.listsurat.all');
+});
+Route::get('/listsurat/perusahaan', function () {
+    return view('user.listsurat.perusahaan');
+});
+Route::get('/listsurat/internal', function () {
+    return view('user.listsurat.internal');
+});
+Route::get('/listsurat/personal', function () {
+    return view('user.listsurat.personal');
 });
 
 Route::get('/listsurat/create', function () {
