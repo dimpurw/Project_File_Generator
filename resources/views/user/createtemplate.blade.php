@@ -1,14 +1,12 @@
-<?php 
-// Handle AJAX request (start)
-if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
-    echo $_POST['tempatps'];
-    exit;
-}
-// Handle AJAX request (end)
-?>
+<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"> -->
 @extends('component.master')
 @section('content')
 <style>
+.content{
+	color: #7A7A7A;
+}
 .bg-warning{
 	/*width: 1440px;*/
 	height: 96px;
@@ -19,9 +17,21 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
 }
 .card{
 	height: 100%;
+	background: #FFFFFF;
+border: 1px solid #C4C4C4;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
+.box{
+	 width: 50px;
+	 height: 50px;
+	 padding-top: 10px;
+	 margin-right: 10px;
+}
+.active{
+	background-color: #FFE5B6;
+}
 </style>
+<div class="content">
 <!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
 	<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
@@ -30,46 +40,49 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
 		<div class="collapse navbar-collapse" id="navcol-1">
 			<div class="nav navbar-nav w-100 justify-content-between">
 				<div class="nav-item"><p>Text Option</p>
-				<select>
+					<div class="row col-lg-12">
+						<select class="custom-select col-5">
 					<option value="10">10</option>
-					<option value="11" selected>11</option>
+					<option value="11">11</option>
 					<option value="12">12</option>
 					<option value="13">13</option>
 					<option value="14">14</option>
 					<option value="15">15</option>
-					<option value="16">16</option>
+					<option value="16" selected>16</option>
 					<option value="17">17</option>
 					<option value="18">18</option>
 					<option value="19">19</option>
 					<option value="20">20</option>
 				</select>
-				<select>
+				<select class="custom-select col-7">
 					<option value="Bold">Bold</option>
 					<option value="Regular" selected>Regular</option>
 					<option value="Italic">12</option>
 				</select>
-
+					</div>
 				</div>
 				<div class="nav-item"><p>Line Height and Spacing</p>
-					<select>
+					<select class="custom-select col-5">
 						<option value="16">16</option>
 					</select>
-					<select>
+					<select class="custom-select col-5">
 						<option value="4%">4%</option>
 					</select>
 				</div>
 				<div class="nav-item"><p>Paragraph spacing and Alignment</p>
-					<select>
+					<select class="custom-select col-5">
 						<option value="auto">Auto</option>
 					</select>
-					<select>
+					<select class="custom-select col-5">
 						<option value="left">Left</option>
 					</select>
 				</div>
-				<div class="nav-item">
-					<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/view.png')}}" style="width: 72px"></a>
-					<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/edit.png')}}" style="width: 28px"></a>
-					<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/delete.png')}}" style="width: 28px"></a>
+				<div class="nav-item" >
+					<div class="d-flex align-items-center" style="padding-top: 23px">
+					<a class="box btn" href="#" ><img src="{{asset('../asset/img/view.png')}}" style="width: 28px;"></a>
+					<a class="box btn active" href="#" ><img src="{{asset('../asset/img/edit.png')}}" style="width: 28px;"></a>
+					<a class="box btn" href="#" ><img src="{{asset('../asset/img/delete.png')}}" style="width: 28px"></a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -88,7 +101,7 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tanggal Penulisan Surat</label>
-    <input type="date" class="form-control" id="tanggalps" name="tanggalps" placeholder="">
+    <input type="date" class="form-control" id="tanggalps" name="tanggalps" placeholder="" oninput="tanggallps()">
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tujuan Surat</label>
@@ -116,9 +129,9 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
   </div>
    <div class="form-group">
     <label >Tanda Tangan</label>
-    <select class="form-control" id="tandatangan" name="tandatangan" style="height: 100%">
+    <select class="form-control" id="tandatangan" name="tandatangan" value="" oninput="tandatt()" >
     <option value="Ada">Ada</option>
-      <option value="Tidak Ada" selected>Tidak Ada</option>
+      <option value="Tidak Ada">Tidak Ada</option>
     </select>
   </div>
 
@@ -128,32 +141,32 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
     </div>
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
-		<div id='response_tempatps'>
-			<p>halo</p>
+		<div class="text-right" >
+			<p id='response_tempatps'></p>
+		</div><br>
+		<div class="hr"id='response_tanggalps'>
+			<p></p>
 		</div>
-		<div id='response_tanggalps'>
-			<p>halo</p>
+		<div id='response_tujuanps' style="margin-top: 50px;">
+			<p></p>
 		</div>
-		<div id='response_tujuanps'>
-			<p>halo</p>
+		<div id='response_alamatps'  style="margin-top: 50px;">
+			<p></p>
 		</div>
-		<div id='response_alamatps'>
-			<p>halo</p>
+		<div id='response_salampembuka' style="margin-top: 50px;">
+			<p></p>
 		</div>
-		<div id='response_salampembuka'>
-			<p>halo</p>
+		<div id='response_isisurat' style="margin-top: 50px;">
+			<p></p>
 		</div>
-		<div id='response_isisurat'>
-			<p>halo</p>
+		<div id='response_salampenutup' style="margin-top: 50px;">
+			<p></p>
 		</div>
-		<div id='response_salampenutup'>
-			<p>halo</p>
+		<div id='response_pengirimps' style="margin-top: 50px;">
+			<p></p>
 		</div>
-		<div id='response_pengirimsurat'>
-			<p>halo</p>
-		</div>
-		<div id='response_tandatangan'>
-			<p>halo</p>
+		<div class="text-right" id='response_tandatangan' style="margin-top: 50px;">
+			<p></p>
 		</div>
 			</div>
 	<div class="form-row pull-right">
@@ -175,21 +188,46 @@ if( isset($_POST['ajax']) && isset($_POST['tempatps']) ){
   </div>
   </form>
 </div>
+</div>
 
         <script>
-        $(document).ready(function(){
-            $('#tempatps').keyup(function(){
-                var name = $('#tempatps').val();
-
-                $.ajax({
-                    type: 'post',
-                    data: {ajax: 1,name: tempatps},
-                    success: function(response){
-                        $('#response').text( response);
-                    }
-                });
-            });
-        });
+       var tempatps = document.getElementById('tempatps');
+       
+       var tujuanps = document.getElementById('tujuanps');
+       var alamatps = document.getElementById('alamatps');
+       var salampenutup = document.getElementById('salampenutup');
+       var salampembuka = document.getElementById('salampembuka');
+       var isisurat = document.getElementById('isisurat');
+       var pengirimps = document.getElementById('pengirimps');
+      
+	tempatps.onkeyup = function(){
+    document.getElementById('response_tempatps').innerHTML = tempatps.value;
+	}
+	
+	tujuanps.onkeyup = function(){
+    document.getElementById('response_tujuanps').innerHTML = tujuanps.value;
+	}
+	alamatps.onkeyup = function(){
+    document.getElementById('response_alamatps').innerHTML = alamatps.value;
+	}
+	salampembuka.onkeyup = function(){
+    document.getElementById('response_salampembuka').innerHTML = salampembuka.value;
+	}
+	salampenutup.onkeyup = function(){
+    document.getElementById('response_salampenutup').innerHTML = salampenutup.value;}
+    isisurat.onkeyup = function(){
+    document.getElementById('response_isisurat').innerHTML = isisurat.value;}
+    pengirimps.onkeyup = function(){
+    document.getElementById('response_pengirimps').innerHTML = pengirimps.value;}
+    function tanggallps() {
+  var z = document.getElementById("tanggalps").value;
+  document.getElementById("response_tanggalps").innerHTML =  z;
+}
+ 
+		function tandatt() {
+  var x = document.getElementById("tandatangan").value;
+  document.getElementById("response_tandatangan").innerHTML =  x;
+}
         </script>
 
 
