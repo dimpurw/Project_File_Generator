@@ -1,5 +1,9 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 @extends('component.master')
 @section('content')
+
+
     <nav class="navbar navbar-expand-lg navbar-light" style="height: 50px; background-color: #FFBE4B;">
         <div class="container-fluid">
         </div>
