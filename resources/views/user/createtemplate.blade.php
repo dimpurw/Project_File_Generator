@@ -98,7 +98,7 @@
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tanggal Penulisan Surat</label>
-    <input type="date" class="form-control" id="tanggalps" name="tanggalps" placeholder="">
+    <input type="date" class="form-control" id="tanggalps" name="tanggalps" placeholder="" oninput="tanggallps()">
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tujuan Surat</label>
@@ -126,9 +126,9 @@
   </div>
    <div class="form-group">
     <label >Tanda Tangan</label>
-    <select class="form-control" id="tandatangan" name="tandatangan">
+    <select class="form-control" id="tandatangan" name="tandatangan" value="" oninput="tandatt()" >
     <option value="Ada">Ada</option>
-      <option value="Tidak Ada" selected>Tidak Ada</option>
+      <option value="Tidak Ada">Tidak Ada</option>
     </select>
   </div>
 
@@ -138,31 +138,31 @@
     </div>
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
-		<div id='response_tempatps'>
+		<div class="text-right" >
+			<p id='response_tempatps'></p>
+		</div><br>
+		<div class="hr"id='response_tanggalps'>
 			<p></p>
 		</div>
-		<div id='response_tanggalps'>
+		<div id='response_tujuanps' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_tujuanps'>
+		<div id='response_alamatps'  style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_alamatps'>
+		<div id='response_salampembuka' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_salampembuka'>
+		<div id='response_isisurat' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_isisurat'>
+		<div id='response_salampenutup' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_salampenutup'>
+		<div id='response_pengirimps' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_pengirimsurat'>
-			<p></p>
-		</div>
-		<div id='response_tandatangan'>
+		<div class="text-right" id='response_tandatangan' style="margin-top: 50px;">
 			<p></p>
 		</div>
 			</div>
@@ -188,11 +188,43 @@
 </div>
 
         <script>
-       var inputBox = document.getElementById('tempatps');
-
-	inputBox.onkeyup = function(){
-    document.getElementById('response_tempatps').innerHTML = inputBox.value;
-		}
+       var tempatps = document.getElementById('tempatps');
+       
+       var tujuanps = document.getElementById('tujuanps');
+       var alamatps = document.getElementById('alamatps');
+       var salampenutup = document.getElementById('salampenutup');
+       var salampembuka = document.getElementById('salampembuka');
+       var isisurat = document.getElementById('isisurat');
+       var pengirimps = document.getElementById('pengirimps');
+      
+	tempatps.onkeyup = function(){
+    document.getElementById('response_tempatps').innerHTML = tempatps.value;
+	}
+	
+	tujuanps.onkeyup = function(){
+    document.getElementById('response_tujuanps').innerHTML = tujuanps.value;
+	}
+	alamatps.onkeyup = function(){
+    document.getElementById('response_alamatps').innerHTML = alamatps.value;
+	}
+	salampembuka.onkeyup = function(){
+    document.getElementById('response_salampembuka').innerHTML = salampembuka.value;
+	}
+	salampenutup.onkeyup = function(){
+    document.getElementById('response_salampenutup').innerHTML = salampenutup.value;}
+    isisurat.onkeyup = function(){
+    document.getElementById('response_isisurat').innerHTML = isisurat.value;}
+    pengirimps.onkeyup = function(){
+    document.getElementById('response_pengirimps').innerHTML = pengirimps.value;}
+    function tanggallps() {
+  var z = document.getElementById("tanggalps").value;
+  document.getElementById("response_tanggalps").innerHTML =  z;
+}
+ 
+		function tandatt() {
+  var x = document.getElementById("tandatangan").value;
+  document.getElementById("response_tandatangan").innerHTML =  x;
+}
         </script>
 
 
