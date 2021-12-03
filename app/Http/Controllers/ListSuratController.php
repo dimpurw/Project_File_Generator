@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\surat;
 
 class ListSuratController extends Controller
 {
@@ -24,7 +25,7 @@ class ListSuratController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.createtemplate');
     }
 
     /**
@@ -35,7 +36,23 @@ class ListSuratController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'TempatPenulisan' => 'required',
+            'TanggalPenulisan' => 'required',
+            'TujuanSurat' => 'required',
+            'AlamatTujuan' => 'required',
+            'SalamPembuka' => 'required',
+            'Isi' => 'required',
+            'SalamPenutup' => 'required',
+            'Pengirim' => 'required',
+            'Ttd' => 'required',
+            'JenisSurat' => 'required',
+        ]);
+
+        $input = $request->all();
+        // $surat = surat::create($input);
+        dd($input);
+        // return view();
     }
 
     /**

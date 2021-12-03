@@ -91,7 +91,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 <!-- Navbar -->
 
 <div class="container-fluid" style="height: 100%" >
-	<form method="post">
+	<form method="POST" action="{{ route('listsurat.store') }}">
+	@csrf
   <div class="row">
     <div class="col-5">
   <div class="form-group">

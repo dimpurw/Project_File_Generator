@@ -30,10 +30,6 @@ Route::get('/listsurat/internal', function () {
 Route::get('/listsurat/personal', function () {
     return view('user.listsurat.personal');
 });
-
-Route::get('/listsurat/create', function () {
-    return view('user.createtemplate');
-});
 Route::get('/listsurat/generate', function () {
     return view('user.generate');
 });
