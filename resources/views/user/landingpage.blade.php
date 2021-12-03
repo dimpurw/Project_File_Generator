@@ -1,3 +1,4 @@
+<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
 @extends('component.master')
 @section('content')
   <div class="sidenav">
@@ -18,7 +19,7 @@
                      <input type="password" name="password" class="form-control" placeholder="This is a text">
                   </div>
                   <p><a href="{{ route('forget.password.get') }}">Forget Password?</a></p>
-                  <button type="submit" class="btn btn-black">Login</button>
+                  <button type="submit" class="btn btn-black" style="width: 70%;">Login</button>
                </form>
                 <div class="info">
                     <p>Tidak punya akun?<a href="">minta Akun ke Admin?</a></p>

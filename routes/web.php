@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\ListSuratController;
+use App\Http\Controllers\FilterSuratController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,22 +32,11 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::group(['middleware' => ['auth']], function () { 
     
-    Route::get('/listsurat', function () {
-        return view('user.listsurat.all');
-    });
-    Route::get('/listsurat/perusahaan', function () {
-        return view('user.listsurat.perusahaan');
-    });
-    Route::get('/listsurat/internal', function () {
-        return view('user.listsurat.internal');
-    });
-    Route::get('/listsurat/personal', function () {
-        return view('user.listsurat.personal');
-    });
-    
-    Route::get('/listsurat/create', function () {
-        return view('user.createtemplate');
-    });
+    Route::resource('listsurat', ListSuratController::class);
+    Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
+    Route::get('/personal', [FilterSuratController::class, 'personal']);
+    Route::get('/internal', [FilterSuratController::class, 'internal']);
+    // Route::get('/listsurat/internal', 'filtersurat@internal');
+
+    // Route::get('/listsurat/personal', 'filtersurat@personal');
 });
-
-
