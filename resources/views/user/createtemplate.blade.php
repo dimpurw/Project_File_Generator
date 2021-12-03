@@ -114,15 +114,15 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </div>
    <div class="form-group">
     <label for="exampleInputname">Salam Pembuka</label>
-    <input type="text" class="form-control" id="salampembuka" name="salampembuka" placeholder="">
+    <input type="text" class="form-control" id="salampembuka" name="SalamPembuka" placeholder="">
   </div>
    <div class="form-group">
     <label for="exampleInputname">Isi Surat</label>
-    <input type="text" class="form-control" id="isi" name="isi" placeholder="">
+    <input type="text" class="form-control" id="isi" name="Isi" placeholder="">
   </div>
    <div class="form-group">
     <label for="exampleInputname">Salam Penutupan</label>
-    <input type="text" class="form-control" id="salampenutup" name="salampenutup" placeholder="">
+    <input type="text" class="form-control" id="salampenutup" name="SalamPenutup" placeholder="">
   </div>
   <div class="form-group">
     <label for="exampleInputname">Pengirim Surat</label>
@@ -130,7 +130,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </div>
    <div class="form-group">
     <label >Tanda Tangan</label>
-    <select class="form-control" id="ttd" name="ttd" value="" oninput="tandatt()" >
+    <select class="form-control" id="ttd" name="Ttd" value="" oninput="tandatt()" >
     <option value="Ada">Ada</option>
       <option value="Tidak Ada">Tidak Ada</option>
     </select>
@@ -170,11 +170,11 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 			</div>
 	<div class="form-row pull-right">
     <div class="col-custom-1" style="margin-right: 52px;;margin-top: 10.5px;">
-      <select class="custom-select" id="jenissurat" name="jenissurat" style="width: 315px;height: 38px" >
+      <select class="custom-select" id="jenissurat" name="JenisSurat" style="width: 315px;height: 38px" >
       	 <option selected>Folder</option>
     	<option value="Perusahaan">Perusahaan</option>
-      <option value="Internal">Internal</option>
-       <option value="Personal">Personal</option>
+      	<option value="Internal">Internal</option>
+       	<option value="Personal">Personal</option>
     </select>
     </div>
     <div class="col-custom-2">

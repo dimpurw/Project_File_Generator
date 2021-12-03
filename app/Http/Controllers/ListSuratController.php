@@ -50,8 +50,8 @@ class ListSuratController extends Controller
         ]);
 
         $input = $request->all();
-        // $surat = surat::create($input);
-        dd($input);
+        $surat = surat::create($input);
+        dd($surat);
         // return view();
     }
 
