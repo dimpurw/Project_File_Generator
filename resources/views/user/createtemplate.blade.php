@@ -106,7 +106,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tujuan Surat</label>
-    <input type="text" class="form-control" id="TujuanPenulisan" name="TujuanPenulisan" placeholder="">
+    <input type="text" class="form-control" id="TujuanSurat" name="TujuanSurat" placeholder="">
   </div>
    <div class="form-group">
     <label for="exampleInputname">Alamat Tujuan</label>
@@ -146,7 +146,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		<div class="hr"id='response_TanggalPenulisan'>
 			<p></p>
 		</div>
-		<div id='response_TujuanPenulisan' style="margin-top: 50px;">
+		<div id='response_TujuanSurat' style="margin-top: 50px;">
 			<p></p>
 		</div>
 		<div id='response_AlamatTujuan'  style="margin-top: 50px;">
@@ -187,7 +187,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 </div>
   <script>
        var TempatPenulisan = document.getElementById('TempatPenulisan');
-       var TujuanPenulisan = document.getElementById('TujuanPenulisan');
+       var TujuanSurat = document.getElementById('TujuanSurat');
        var AlamatTujuan = document.getElementById('AlamatTujuan');
        var salampenutup = document.getElementById('salampenutup');
        var salampembuka = document.getElementById('salampembuka');
@@ -198,8 +198,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     document.getElementById('response_TempatPenulisan').innerHTML = TempatPenulisan.value;
 	}
 	
-	TujuanPenulisan.onkeyup = function(){
-    document.getElementById('response_TujuanPenulisan').innerHTML = TujuanPenulisan.value;
+	TujuanSurat.onkeyup = function(){
+    document.getElementById('response_TujuanSurat').innerHTML = TujuanSurat.value;
 	}
 
 	AlamatTujuan.onkeyup = function(){

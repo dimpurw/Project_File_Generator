@@ -13,9 +13,8 @@ class CreateSuratsTable extends Migration
      */
     public function up()
     {
-        Schema::create('surats', function (Blueprint $table) {
+        Schema::create('surat', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->string('TempatPenulisan');
             $table->date('TanggalPenulisan');
             $table->string('TujuanSurat');
@@ -26,6 +25,7 @@ class CreateSuratsTable extends Migration
             $table->string('Pengirim');
             $table->string('Ttd');
             $table->string('JenisSurat');
+            $table->timestamps();
         });
     }
 

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\surat;
+use Illuminate\Http\Request;
 
 class ListSuratController extends Controller
 {
