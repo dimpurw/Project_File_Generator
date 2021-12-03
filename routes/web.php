@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ListSuratController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +17,10 @@ Route::get('/', function () {
     return view('user.landingpage');
 });
 
-Route::get('/listsurat', function () {
-    return view('user.listsurat.all');
-});
+Route::resource('listsurat', ListSuratController::class);
+
+
+
 Route::get('/listsurat/perusahaan', function () {
     return view('user.listsurat.perusahaan');
 });
@@ -36,5 +37,6 @@ Route::get('/listsurat/create', function () {
 Route::get('/listsurat/generate', function () {
     return view('user.generate');
 });
+
 
 
