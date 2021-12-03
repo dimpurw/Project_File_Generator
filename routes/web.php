@@ -20,14 +20,13 @@ Route::group(['middleware' => ['guest']], function () {
     return view('user.landingpage');
     })->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::get('/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('/forgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::get('/resetpassword/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('/resetpassword', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 });
 
 Route::get('/logout', [LoginController::class, 'logout']);
-
-Route::get('/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('/forgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
-Route::get('/resetpassword/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
-Route::post('/resetpassword', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::group(['middleware' => ['auth']], function () { 
     

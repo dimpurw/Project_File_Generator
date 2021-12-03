@@ -15,7 +15,7 @@ class ForgotPasswordController extends Controller
 {
     public function showForgetPasswordForm()
       {
-         return view('auth.forgetpassword');
+         return view('auth.forget_password');
       }
   
       /**
@@ -37,7 +37,7 @@ class ForgotPasswordController extends Controller
               'created_at' => Carbon::now()
             ]);
   
-          Mail::send('auth.forgetpassword', ['token' => $token], function($message) use($request){
+          Mail::send('auth.reset_password', ['token' => $token], function($message) use($request){
               $message->to($request->email);
               $message->subject('Reset Password');
           });
@@ -50,7 +50,7 @@ class ForgotPasswordController extends Controller
        * @return response()
        */
       public function showResetPasswordForm($token) { 
-         return view('auth.linkforgetpassword', ['token' => $token]);
+         return view('auth.link_forget_password', ['token' => $token]);
       }
   
       /**
@@ -66,7 +66,7 @@ class ForgotPasswordController extends Controller
               'password_confirmation' => 'required'
           ]);
   
-          $updatePassword = DB::table('password_resets')
+          $updatePassword = DB::table('reset_password')
                               ->where([
                                 'email' => $request->email, 
                                 'token' => $request->token
@@ -80,7 +80,7 @@ class ForgotPasswordController extends Controller
           $user = User::where('email', $request->email)
                       ->update(['password' => Hash::make($request->password)]);
  
-          DB::table('password_resets')->where(['email'=> $request->email])->delete();
+          DB::table('reset_password')->where(['email'=> $request->email])->delete();
   
           return redirect('/')->with('message', 'Your password has been changed!');
       }
