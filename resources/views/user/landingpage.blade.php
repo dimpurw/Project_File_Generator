@@ -18,7 +18,7 @@
                      <input type="password" class="form-control" placeholder="This is a text">
                   </div>
                   <p><a href="#">Forget Password?</a></p>
-                  <button type="submit" class="btn btn-black">Login</button>
+                  <button type="submit" class="btn btn-black" style="width: 70%;">Login</button>
                </form>
                 <div class="info">
                     <p>Tidak punya akun?<a href="">minta Akun ke Admin?</a></p>

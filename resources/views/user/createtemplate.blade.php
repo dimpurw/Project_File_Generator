@@ -134,10 +134,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       <option value="Tidak Ada">Tidak Ada</option>
     </select>
   </div>
-
     </div>
-    <div>
-    	
+    <div>   	
     </div>
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
@@ -179,27 +177,22 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     </select>
     </div>
     <div class="col-custom-2">
-    	
-      <button type="submit" class="btn-lg btn-primary" >SAVE</button>
-     
+      <button type="submit" class="btn-lg btn-primary" >SAVE</button>     
     </div>
 	</div>
     </div>
   </div>
   </form>
 </div>
-
-
-        <script>
+  <script>
        var tempatps = document.getElementById('tempatps');
-       
        var tujuanps = document.getElementById('tujuanps');
        var alamatps = document.getElementById('alamatps');
        var salampenutup = document.getElementById('salampenutup');
        var salampembuka = document.getElementById('salampembuka');
        var isisurat = document.getElementById('isisurat');
        var pengirimps = document.getElementById('pengirimps');
-      
+
 	tempatps.onkeyup = function(){
     document.getElementById('response_tempatps').innerHTML = tempatps.value;
 	}
@@ -207,29 +200,32 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	tujuanps.onkeyup = function(){
     document.getElementById('response_tujuanps').innerHTML = tujuanps.value;
 	}
+
 	alamatps.onkeyup = function(){
     document.getElementById('response_alamatps').innerHTML = alamatps.value;
 	}
+
 	salampembuka.onkeyup = function(){
     document.getElementById('response_salampembuka').innerHTML = salampembuka.value;
 	}
+
 	salampenutup.onkeyup = function(){
     document.getElementById('response_salampenutup').innerHTML = salampenutup.value;}
+
     isisurat.onkeyup = function(){
     document.getElementById('response_isisurat').innerHTML = isisurat.value;}
+
     pengirimps.onkeyup = function(){
     document.getElementById('response_pengirimps').innerHTML = pengirimps.value;}
+
     function tanggallps() {
-  var z = document.getElementById("tanggalps").value;
-  document.getElementById("response_tanggalps").innerHTML =  z;
-}
+  	var z = document.getElementById("tanggalps").value;
+ 	 document.getElementById("response_tanggalps").innerHTML =  z;
+	}
  
-		function tandatt() {
-  var x = document.getElementById("tandatangan").value;
-  document.getElementById("response_tandatangan").innerHTML =  x;
-}
-        </script>
-
-
-
+	function tandatt() {
+  	var x = document.getElementById("tandatangan").value;
+  	document.getElementById("response_tandatangan").innerHTML =  x;
+	}
+  </script>
 @endsection
