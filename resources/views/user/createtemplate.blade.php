@@ -4,7 +4,7 @@
 @extends('component.master')
 @section('content')
 <style>
-.content{
+.container{
 	color: #7A7A7A;
 }
 .bg-warning{
@@ -31,7 +31,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	background-color: #FFE5B6;
 }
 </style>
-<div class="content">
+
 <!-- Navbar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-warning">
 	<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
@@ -188,7 +188,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </div>
   </form>
 </div>
-</div>
+
 
         <script>
        var tempatps = document.getElementById('tempatps');
