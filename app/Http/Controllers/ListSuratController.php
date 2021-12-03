@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\surat;
 use Illuminate\Http\Request;
 
 class ListSuratController extends Controller
@@ -35,7 +36,23 @@ class ListSuratController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'TempatPenulisan' => 'required',
+            'TanggalPenulisan' => 'required',
+            'TujuanSurat' => 'required',
+            'AlamatTujuan' => 'required',
+            'SalamPembuka' => 'required',
+            'Isi' => 'required',
+            'SalamPenutup' => 'required',
+            'Pengirim' => 'required',
+            'Ttd' => 'required',
+            'JenisSurat' => 'required',
+        ]);
+
+        $input = $request->all();
+        $surat = surat::create($input);
+        dd($surat);
+        // return view();
     }
 
     /**
