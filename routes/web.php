@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\ListSuratController;
+use App\Http\Controllers\FilterSuratController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,18 +22,14 @@ Route::resource('listsurat', ListSuratController::class);
 
 
 
-Route::get('/listsurat/perusahaan', function () {
-    return view('user.listsurat.perusahaan');
-});
-Route::get('/listsurat/internal', function () {
-    return view('user.listsurat.internal');
-});
-Route::get('/listsurat/personal', function () {
-    return view('user.listsurat.personal');
-});
-Route::get('/listsurat/generate', function () {
-    return view('user.generate');
-});
+Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
+Route::get('/personal', [FilterSuratController::class, 'personal']);
+Route::get('/internal', [FilterSuratController::class, 'internal']);
+// Route::get('/listsurat/internal', 'filtersurat@internal');
+
+// Route::get('/listsurat/personal', 'filtersurat@personal');
+
+
 
 
 

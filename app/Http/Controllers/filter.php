@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\surat;
 use Illuminate\Http\Request;
 
-class ListSuratController extends Controller
+class filter extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class ListSuratController extends Controller
      */
     public function index()
     {
-        $datasurat = surat::latest()->paginate(5);
-        return view('user.listsurat.all', compact('datasurat'));
+        //
     }
 
     /**
@@ -25,7 +23,7 @@ class ListSuratController extends Controller
      */
     public function create()
     {
-       return view('user.createtemplate');
+        //
     }
 
     /**
@@ -36,23 +34,7 @@ class ListSuratController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'TempatPenulisan' => 'required',
-            'TanggalPenulisan' => 'required',
-            'TujuanSurat' => 'required',
-            'AlamatTujuan' => 'required',
-            'SalamPembuka' => 'required',
-            'Isi' => 'required',
-            'SalamPenutup' => 'required',
-            'Pengirim' => 'required',
-            'Ttd' => 'required',
-            'JenisSurat' => 'required',
-        ]);
-
-        $input = $request->all();
-        $surat = surat::create($input);
-        // dd($surat);
-        return redirect(url('/listsurat'));
+        //
     }
 
     /**
@@ -63,8 +45,7 @@ class ListSuratController extends Controller
      */
     public function show($id)
     {
-        $surat = surat::find($id);
-        dd($surat);
+        //
     }
 
     /**
@@ -99,11 +80,5 @@ class ListSuratController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-     public function perusahaan()
-    {
-        $datasurat = surat::latest()->paginate(5);
-        return view('user.listsurat.perusahaan', compact('datasurat'));
     }
 }
