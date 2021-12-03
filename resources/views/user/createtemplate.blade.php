@@ -1,4 +1,4 @@
-<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
+ <link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <!-- <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"> -->
 @extends('component.master')
@@ -96,20 +96,20 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     <div class="col-5">
   <div class="form-group">
     <label for="exampleInputEmail1">Tempat Penulisan Surat</label>
-    <input type="text" class="form-control" id='tempatps' name="tempatps" aria-describedby="later" placeholder="">
+    <input type="text" class="form-control" id='TempatPenulisan' name="TempatPenulisan" aria-describedby="later" placeholder="">
     <small id="emailHelp" class="form-text text-muted"></small>
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tanggal Penulisan Surat</label>
-    <input type="date" class="form-control" id="tanggalps" name="tanggalps" placeholder="" oninput="tanggallps()">
+    <input type="date" class="form-control" id="TanggalPenulisan" name="TanggalPenulisan" placeholder="" oninput="tanggallps()">
   </div>
   <div class="form-group">
     <label for="exampleInputname">Tujuan Surat</label>
-    <input type="text" class="form-control" id="tujuanps" name="tujuanps" placeholder="">
+    <input type="text" class="form-control" id="TujuanPenulisan" name="TujuanPenulisan" placeholder="">
   </div>
    <div class="form-group">
     <label for="exampleInputname">Alamat Tujuan</label>
-    <input type="text" class="form-control" id="alamatps" name="alamatps" placeholder="">
+    <input type="text" class="form-control" id="AlamatTujuan" name="AlamatTujuan" placeholder="">
   </div>
    <div class="form-group">
     <label for="exampleInputname">Salam Pembuka</label>
@@ -117,7 +117,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </div>
    <div class="form-group">
     <label for="exampleInputname">Isi Surat</label>
-    <input type="text" class="form-control" id="isisurat" name="isisurat" placeholder="">
+    <input type="text" class="form-control" id="isi" name="isi" placeholder="">
   </div>
    <div class="form-group">
     <label for="exampleInputname">Salam Penutupan</label>
@@ -125,11 +125,11 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </div>
   <div class="form-group">
     <label for="exampleInputname">Pengirim Surat</label>
-    <input type="text" class="form-control" id="pengirimps" name="pengirimps" placeholder="">
+    <input type="text" class="form-control" id="Pengirim" name="Pengirim" placeholder="">
   </div>
    <div class="form-group">
     <label >Tanda Tangan</label>
-    <select class="form-control" id="tandatangan" name="tandatangan" value="" oninput="tandatt()" >
+    <select class="form-control" id="ttd" name="ttd" value="" oninput="tandatt()" >
     <option value="Ada">Ada</option>
       <option value="Tidak Ada">Tidak Ada</option>
     </select>
@@ -140,36 +140,36 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
 		<div class="text-right" >
-			<p id='response_tempatps'></p>
+			<p id='response_TempatPenulisan'></p>
 		</div><br>
-		<div class="hr"id='response_tanggalps'>
+		<div class="hr"id='response_TanggalPenulisan'>
 			<p></p>
 		</div>
-		<div id='response_tujuanps' style="margin-top: 50px;">
+		<div id='response_TujuanPenulisan' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_alamatps'  style="margin-top: 50px;">
+		<div id='response_AlamatTujuan'  style="margin-top: 50px;">
 			<p></p>
 		</div>
 		<div id='response_salampembuka' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_isisurat' style="margin-top: 50px;">
+		<div id='response_isi' style="margin-top: 50px;">
 			<p></p>
 		</div>
 		<div id='response_salampenutup' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div id='response_pengirimps' style="margin-top: 50px;">
+		<div id='response_Pengirim' style="margin-top: 50px;">
 			<p></p>
 		</div>
-		<div class="text-right" id='response_tandatangan' style="margin-top: 50px;">
+		<div class="text-right" id='response_ttd' style="margin-top: 50px;">
 			<p></p>
 		</div>
 			</div>
 	<div class="form-row pull-right">
     <div class="col-custom-1" style="margin-right: 52px;;margin-top: 10.5px;">
-      <select class="custom-select" id="tandatangan" name="tandatangan" style="width: 315px;height: 38px" >
+      <select class="custom-select" id="jenissurat" name="jenissurat" style="width: 315px;height: 38px" >
       	 <option selected>Folder</option>
     	<option value="Perusahaan">Perusahaan</option>
       <option value="Internal">Internal</option>
@@ -185,24 +185,24 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   </form>
 </div>
   <script>
-       var tempatps = document.getElementById('tempatps');
-       var tujuanps = document.getElementById('tujuanps');
-       var alamatps = document.getElementById('alamatps');
+       var TempatPenulisan = document.getElementById('TempatPenulisan');
+       var TujuanPenulisan = document.getElementById('TujuanPenulisan');
+       var AlamatTujuan = document.getElementById('AlamatTujuan');
        var salampenutup = document.getElementById('salampenutup');
        var salampembuka = document.getElementById('salampembuka');
-       var isisurat = document.getElementById('isisurat');
-       var pengirimps = document.getElementById('pengirimps');
+       var isi = document.getElementById('isi');
+       var Pengirim = document.getElementById('Pengirim');
 
-	tempatps.onkeyup = function(){
-    document.getElementById('response_tempatps').innerHTML = tempatps.value;
+	TempatPenulisan.onkeyup = function(){
+    document.getElementById('response_TempatPenulisan').innerHTML = TempatPenulisan.value;
 	}
 	
-	tujuanps.onkeyup = function(){
-    document.getElementById('response_tujuanps').innerHTML = tujuanps.value;
+	TujuanPenulisan.onkeyup = function(){
+    document.getElementById('response_TujuanPenulisan').innerHTML = TujuanPenulisan.value;
 	}
 
-	alamatps.onkeyup = function(){
-    document.getElementById('response_alamatps').innerHTML = alamatps.value;
+	AlamatTujuan.onkeyup = function(){
+    document.getElementById('response_AlamatTujuan').innerHTML = AlamatTujuan.value;
 	}
 
 	salampembuka.onkeyup = function(){
@@ -212,20 +212,20 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	salampenutup.onkeyup = function(){
     document.getElementById('response_salampenutup').innerHTML = salampenutup.value;}
 
-    isisurat.onkeyup = function(){
-    document.getElementById('response_isisurat').innerHTML = isisurat.value;}
+    isi.onkeyup = function(){
+    document.getElementById('response_isi').innerHTML = isi.value;}
 
-    pengirimps.onkeyup = function(){
-    document.getElementById('response_pengirimps').innerHTML = pengirimps.value;}
+    Pengirim.onkeyup = function(){
+    document.getElementById('response_Pengirim').innerHTML = Pengirim.value;}
 
     function tanggallps() {
-  	var z = document.getElementById("tanggalps").value;
- 	 document.getElementById("response_tanggalps").innerHTML =  z;
+  	var z = document.getElementById("TanggalPenulisan").value;
+ 	 document.getElementById("response_TanggalPenulisan").innerHTML =  z;
 	}
  
 	function tandatt() {
-  	var x = document.getElementById("tandatangan").value;
-  	document.getElementById("response_tandatangan").innerHTML =  x;
+  	var x = document.getElementById("ttd").value;
+  	document.getElementById("response_ttd").innerHTML =  x;
 	}
   </script>
 @endsection
