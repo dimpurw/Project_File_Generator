@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col mb-3">
                  @foreach($datasurat as $surat)
-                <div class="media surat mt-5" id="list-surat1" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
+                <div class="media surat mt-5" id="listSurat" style="background-color: white; border: 1px solid #D5D3D3; box-sizing: border-box; border-radius: 4px; border-left-width:10px; border-left-color: #7A7A7A;">
                     <div class="media-body ml-5" id="deskrip-surat1" onclick="listIcon('icon-display', 1);">
                         <h5 class="card-title" style="font-weight: normal; font-size: 18px;">Surat {{$surat->JenisSurat}}</h5>
                         <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}}1 - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>

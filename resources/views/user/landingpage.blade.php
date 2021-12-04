@@ -1,4 +1,4 @@
-<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css">
 @extends('component.master')
 @section('content')
   <div class="sidenav">

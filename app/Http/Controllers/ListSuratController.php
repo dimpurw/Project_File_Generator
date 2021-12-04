@@ -15,7 +15,7 @@ class ListSuratController extends Controller
     public function index()
     {
         $datasurat = surat::latest()->paginate(5);
-        return view('user.listsurat.all', compact('datasurat'));
+        return view('user.listsurat.alls', compact('datasurat'));
     }
 
     /**
