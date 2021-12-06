@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\surat;
+use App\Models\category;
 use Illuminate\Http\Request;
 use DB;
 class ListSuratController extends Controller
@@ -15,13 +16,16 @@ class ListSuratController extends Controller
     public function index()
     {
         $datasurat = surat::latest()->get();
-        $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
-         $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
+        $folder = category::all();
+      //  $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
+        // $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
         //$filters = surat::select('JenisSurat')->get();
         // $filter = $filter->unique();
-         $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
-          $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
-        return view('user.listsurat.alls', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
+         // $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
+         //  $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
+        //return view('user.listsurat.allq', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
+        return view('user.listsurat.allq', compact('datasurat','folder'));
+
     }
 
     /**
