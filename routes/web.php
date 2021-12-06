@@ -17,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('user.landingpage');
 });
+Route::get('/edit', function () {
+    return view('user.edittemplate');
+});
+Route::get('/generate', function () {
+    return view('user.generate');
+});
 
 Route::resource('listsurat', ListSuratController::class);
 
@@ -25,6 +31,7 @@ Route::resource('listsurat', ListSuratController::class);
 Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
 Route::get('/personal', [FilterSuratController::class, 'personal']);
 Route::get('/internal', [FilterSuratController::class, 'internal']);
+
 // Route::get('/listsurat/internal', 'filtersurat@internal');
 
 // Route::get('/listsurat/personal', 'filtersurat@personal');

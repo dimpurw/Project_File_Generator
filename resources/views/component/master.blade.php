@@ -6,16 +6,14 @@
 <!-- <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css"> -->
 <!-- <link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css"> -->
 <link href="{{asset('css/main.css')}}" rel="stylesheet" type="text/css">
-
 <head>
   <title>FILE GENERATOR</title>
 </head>
 <body>
-<!-- <div id="wrapper">
-	<div id="content-wrapper" class="d-flex flex-column"> -->
-		@yield('content')
-	<!-- </div> -->
-</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #FFBE4B;height: 64px">
+    <a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 24px"></a>
+</nav>
+@yield('content')
 </body>
 <script>
   function listIcon(divTag, id) {
@@ -36,7 +34,6 @@
     deskrip.style.display = 'none';
     viewDelList.style.display = 'block';
   }
-  
 </script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

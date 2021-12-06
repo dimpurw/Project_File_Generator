@@ -16,7 +16,7 @@ class ListSuratController extends Controller
     {
         $datasurat = surat::latest()->get();
         $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
-         $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
+        $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
         $filters = surat::select('JenisSurat')->first();
         // $filter = $filter->unique();
         return view('user.listsurat.alls', compact('datasurat','suratperusahaan','suratinternal','filters'));
@@ -54,7 +54,7 @@ class ListSuratController extends Controller
         ]);
 
         $input = $request->all();
-        $surat = surat::create($input);
+        $datasurat = surat::create($input);
         // dd($surat);
         return redirect(url('/listsurat'));
     }
@@ -67,8 +67,8 @@ class ListSuratController extends Controller
      */
     public function show($id)
     {
-        $surat = surat::find($id);
-        dd($surat);
+        $datasurat = surat::find($id);
+        dd($datasurat);
     }
 
     /**
@@ -79,7 +79,8 @@ class ListSuratController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datasurat = surat::find($id);
+        return view('user.edittemplate', compact ('datasurat'));
     }
 
     /**
