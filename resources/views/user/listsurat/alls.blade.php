@@ -236,8 +236,8 @@ line-height: 39px;">Unggah File</h4></div>
                 <div class="col-9 text-left"><p style="font-weight: 300;
 font-size: 18px;
 line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
-                 <form class="form-group text-center">
-  <div class="form-group row">
+                 <form class="col-9 text-center">
+  <div class="form-group row text-left">
     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
     <div class="col-sm-8">
       <select class="form-control" id="JenisSurat" name="JenisSurat" value="">
@@ -246,7 +246,7 @@ line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
     </select>
     </div>
   </div>
-  <div class="form-group row">
+  <div class="form-group row text-left">
     <label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
     <div class="col-sm-8">
       <input type="file" class="form-control" id="filesurat" name="filesurat" placeholder="comp/desktop/1111.docx">
@@ -275,9 +275,9 @@ line-height: 39px;">Folder Baru</h4></div>
                 <div class="col-9 text-left"><p style="font-weight: 300;
 font-size: 18px;
 line-height: 22px">Buat Folder Baru</p></div>
-                 <form class="form-group text-center">
-  <div class="form-group row">
-    <label for="inputPassword" class="col-sm-3 col-form-label">Nama Folder</label>
+                 <form class="col-9 text-center">
+  <div class="form-group row text-left">
+    <p class="col-4">Nama Folder</p>
     <div class="col-sm-8">
       <input type="text" class="form-control" id="filesurat" name="filesurat" placeholder="comp/desktop/1111.docx">
     </div>

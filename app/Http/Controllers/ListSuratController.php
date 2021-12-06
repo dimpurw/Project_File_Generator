@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\surat;
 use Illuminate\Http\Request;
-
+use DB;
 class ListSuratController extends Controller
 {
     /**
@@ -17,9 +17,11 @@ class ListSuratController extends Controller
         $datasurat = surat::latest()->get();
         $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
          $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
-        $filters = surat::select('JenisSurat')->first();
+        //$filters = surat::select('JenisSurat')->get();
         // $filter = $filter->unique();
-        return view('user.listsurat.alls', compact('datasurat','suratperusahaan','suratinternal','filters'));
+         $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
+          $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
+        return view('user.listsurat.alls', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
     }
 
     /**
