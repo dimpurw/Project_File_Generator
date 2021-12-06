@@ -16,11 +16,11 @@ class ListSuratController extends Controller
     {
         $datasurat = surat::latest()->get();
         $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
-         $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
+        $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
         //$filters = surat::select('JenisSurat')->get();
         // $filter = $filter->unique();
          $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
-          $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
+        $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
         return view('user.listsurat.alls', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
     }
 
