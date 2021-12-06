@@ -9,15 +9,7 @@ class surat extends Model
 {
     protected $table = 'surat';
     protected $fillable = [
-        'TempatPenulisan',
-        'TanggalPenulisan',
-        'TujuanSurat',
-        'AlamatTujuan',
-        'SalamPembuka',
-        'Isi',
-        'SalamPenutup',
-        'Pengirim',
-        'Ttd',
+        'file_surat',
         'id_category'
     ];
     

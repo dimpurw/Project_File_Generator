@@ -59,9 +59,6 @@ height: 44px;
     : #FFFFFF
 }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #FFBE4B;height: 64px">
-    <a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 24px"></a>
-</nav>
 <div class="container-fluid">
     <div class="row ml-5 mt-5">
         <div class="col-md-8 mb-3" #style="background-color: red;height: 200px">
@@ -73,11 +70,11 @@ height: 44px;
                  
                 <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >
                     <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
-                        <div class="card-body pb-0 col-7" @if($id_category == '1') style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;" >
+                        <div class="card-body pb-0 col-7" style="border-left: 16px solid #7A7A7A!important;text-align: justify;">
                             <div>
-                             <h4 style="font-weight: normal; font-size: 18px;">Surat {{$surat->jeniscategory->nama}}</h4>
+                             <h4 style="font-weight: normal; font-size: 18px;">{{$surat->file_surat}}</h4>
                              <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
-                             <p >{{substr($surat->Isi, 0, 100) }}...</p></div>
+                             <p ></p></div>
                         </div>
 
                         <div class="card-body col-md-6 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
@@ -191,14 +188,15 @@ line-height: 39px;">Unggah File</h4></div>
                 <div class="col-9 text-left"><p style="font-weight: 300;
 font-size: 18px;
 line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
-                 <form class="col-9 text-center">
-  <div class="form-group row text-left">
+                 <form class="col-9 text-center" enctype="multipart/form-data" method="post" action="{{route('listsurat.store')}}">
+  @csrf
+                 <div class="form-group row text-left">
     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
     <div class="col-sm-8">
        
       <select class="form-control" id="JenisSurat" name="id_category" value="">
          @foreach($folder as $folders)
-    <option value="{{$folders->jenis}}" selected>{{$folders->jenis}}</option>
+    <option value="{{$folders->id}}">{{$folders->jenis}}</option>
         @endforeach
     </select>
     </div>
@@ -206,7 +204,7 @@ line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
   <div class="form-group row text-left">
     <label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
     <div class="col-sm-8">
-      <input type="file" class="form-control" id="filesurat" name="filesurat" placeholder="comp/desktop/1111.docx">
+      <input type="file" class="form-control" id="filesurat" name="file_surat" placeholder="comp/desktop/1111.docx">
     </div>
   </div>
   <div class="col-sm-12 text-right">

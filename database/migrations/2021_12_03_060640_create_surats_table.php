@@ -15,16 +15,8 @@ class CreateSuratsTable extends Migration
     {
         Schema::create('surat', function (Blueprint $table) {
             $table->id();
-            $table->string('TempatPenulisan');
-            $table->date('TanggalPenulisan');
-            $table->string('TujuanSurat');
-            $table->string('AlamatTujuan');
-            $table->string('SalamPembuka');
-            $table->text('Isi');
-            $table->string('SalamPenutup');
-            $table->string('Pengirim');
             $table->biginteger('id_category')->unsigned();
-            $table->string('Ttd');
+            $table->binary('file_surat');
             $table->timestamps();
         });
     }

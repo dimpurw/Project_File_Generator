@@ -46,22 +46,11 @@ class ListSuratController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'TempatPenulisan' => 'required',
-            'TanggalPenulisan' => 'required',
-            'TujuanSurat' => 'required',
-            'AlamatTujuan' => 'required',
-            'SalamPembuka' => 'required',
-            'Isi' => 'required',
-            'SalamPenutup' => 'required',
-            'Pengirim' => 'required',
-            'Ttd' => 'required',
-            'JenisSurat' => 'required',
-        ]);
-
         $input = $request->all();
         $datasurat = surat::create($input);
-        // dd($surat);
+        $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());
+        $datasurat->file_surat = $request->file('file_surat')->getClientOriginalName();
+        $datasurat->save();
         return redirect(url('/listsurat'));
     }
 
