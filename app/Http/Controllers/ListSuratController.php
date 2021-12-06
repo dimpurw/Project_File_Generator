@@ -14,8 +14,12 @@ class ListSuratController extends Controller
      */
     public function index()
     {
-        $datasurat = surat::latest()->paginate(5);
-        return view('user.listsurat.alls', compact('datasurat'));
+        $datasurat = surat::latest()->get();
+        $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
+         $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
+        $filters = surat::select('JenisSurat')->first();
+        // $filter = $filter->unique();
+        return view('user.listsurat.alls', compact('datasurat','suratperusahaan','suratinternal','filters'));
     }
 
     /**

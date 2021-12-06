@@ -1,12 +1,21 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
 @extends('component.master')
 @section('content')
 <style type="text/css">
-    
-.nav .nav-link:hover{
+.card:hover{
+     transform: translateX(50px);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  
+} 
+ul.nav-item li.nav-link:hover{
     color: #FFFFFF;
+    transform: translateX(-18px);
 
+}
+.nav-item.active:hover{
+    color: #FFFFFF;
+    transform: unset;
 }
 
 .nav-item.active{
@@ -58,60 +67,102 @@ height: 44px;
         <div class="col-md-8 mb-3" #style="background-color: red;height: 200px">
        <!--  Konten surat -->
             <div class="tab-content">
-                <!-- semua surat -->
+                <!-- semua surat -->    
+                 @if (isset($datasurat) && count($datasurat) > 0)
+                  @foreach($datasurat as $surat)
+                  <?php 
+                    $jenis = $surat->JenisSurat;
+                   ?>
+                <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >
+                    <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
+                        <div class="card-body pb-0 col-7" @if($jenis == 'Perusahaan') style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;" >
+                            <div>
+                             <h4 style="font-weight: normal; font-size: 18px;">Surat {{$surat->JenisSurat}}</h4>
+                             <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
+                             <p >{{substr($surat->Isi, 0, 100) }}...</p></div>
+                        </div>
+
+                        <div class="card-body col-md-6 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
+                             <div class="icon-display" >
+                            <a href="{{route('listsurat.show',$surat->id)}}"><button
+                                type="button"
+                                class="btn btn-floating btn-lg mt-5 mr-2"
+                                id="" style="background: #C5D9FF; border-radius: 4px;width: 72px;height: 72px;transform: translate(10px, -45px);"
+                                >
+                                <i class="fa fa-eye"></i>
+                            </button></a>
+                            <a href="">
+                            <button
+                                type="button"
+                                class="btn btn-floating btn-lg mt-5 mr-2"
+                                id="" style="background: #FFE5B6; border-radius: 4px;width: 72px;height: 72px;transform: translate(10px, -45px);"
+                                >
+                                <i class="fa fa-pencil"></i>
+                            </button></a>
+                           <a href=""><button
+                                type="button"
+                                class="btn btn-floating btn-lg mt-5 mr-2"
+                                id="" style="background: #C5FFEA; border-radius: 4px;width: 72px;height: 72px;transform: translate(10px, -45px);"
+                                >
+                                <i class="fa fa-print"></i>
+                            </button></a>
+                            <a href=""><button
+                                type="button"
+                                class="btn btn-floating btn-lg mt-5 mr-2"
+                                onclick="deleteList(1);"
+                                id="" style="background: #FDC0C0; border-radius: 4px;width: 72px;height: 72px;transform: translate(10px, -45px);"
+                                >
+                                <i class="fa fa-trash-o"></i>
+                            </button></a>
+                        </div>
+                        </div>
+                    </div>
+                </div>                         
+                 @endforeach
+                 @else()
+                 <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >Tidak ada Data </div>
+                 @endif
+
+                 <!-- perusahaan -->
+                  
                  
-                 @if(isset($datasurat) && count($datasurat) > 0)
-                 @foreach($datasurat as $surat)
-                 @if($surat->JenisSurat == 'Perusahaan')
-                <div class="tab-pane active" id="semua" role="tabpanel" aria-labelledby="semua-tab" aria-expanded="true" style="border-radius: 4px;">
-                  @else
-                  <div class="tab-pane active" id="semua" role="tabpanel" aria-labelledby="semua-tab" aria-expanded="true" style="border-radius: 4px;">
-                  @endif
-                    <div class="card mb-4">
+                  @if (isset($suratperusahaan) && count($suratperusahaan) > 0)
+                  @foreach($suratperusahaan as $surat)
+                 @if($surat->JenisSurat == "Perusahaan")           
+                <div class="tab-pane" id="perusahaan" role="tabpanel" aria-labelledby="perusahaan-tab">
+                    <div class="card">           
                         <div class="card-body pb-0 col-7" style="border-left: 16px solid #7A7A7A!important;text-align: justify;">
-                            <h4 class="card-title" style="font-weight: normal; font-size: 18px;">Surat {{$surat->JenisSurat}}</h4>
+                             <h4 class="card-title" style="font-weight: normal; font-size: 18px;">Surat {{$surat->JenisSurat}}</h4>
                              <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
                              <p >{{substr($surat->Isi, 0, 100) }}...</p>
                         </div>
                     </div>
-                </div>
-                @endforeach
-                @endif        
-                 <!-- perusahaan -->
-                 
-                 @if($surat->JenisSurat == 'Perusahaan')
-                 @foreach($datasurat as $surat)
-                <div class="tab-pane" id="perusahaan" role="tabpanel" aria-labelledby="perusahaan-tab" aria-expanded="false">
-                    <div class="card">
-                        <div class="card-body pb-0 col-7" style="border-left: 16px solid #7A7A7A!important;text-align: justify;">
-                            <h4 class="card-title" style="font-weight: normal; font-size: 18px;">Card 2</h4>
-                             <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
-                             <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+                </div> 
                 @else()
-                <div class="tab-pane" id="perusahaan" role="tabpanel" aria-labelledby="perusahaan-tab" aria-expanded="false">
+                <div class="tab-pane" id="internal" role="tabpanel" aria-labelledby="internal-tab" aria-expanded="false">
                     <div class="card">
                       Belum ada data
                     </div>
                 </div>
                 @endif
-                <!-- internal -->
-                @if($surat->JenisSurat == 'Internal')
-                 @foreach($datasurat as $surat)
+                @endforeach
+                @endif
                  
-                <div class="tab-pane" id="internal" role="tabpanel" aria-labelledby="internal-tab" aria-expanded="false">
+                <!-- internal -->
+                
+                  @if (isset($suratinternal) && count($suratinternal) > 0)
+                  @foreach($suratinternal as $surat)
+                 @if($surat->JenisSurat == "Internal")
+                <div class="tab-pane" id="internal" role="tabpanel" aria-labelledby="internal-tab">
                     <div class="card">
                         <div class="card-body pb-0 col-7" style="border-left: 16px solid #9FFFBE!important;text-align: justify;">
-                            <h4 class="card-title" style="font-weight: normal; font-size: 18px;">Card 3</h4>
-                             <span style="font-weight: 300; font-size: 14px;">Last edited Jun 8, 2021 - <a href="#" target="_blank" style="color: #FFBE4B;">Anggraeni Hayyu</a></span>
-                             <p >Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore...</p>
+                             <h4 class="card-title" style="font-weight: normal; font-size: 18px;">Surat {{$surat->JenisSurat}}</h4>
+                             <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
+                             <p >{{substr($surat->Isi, 0, 100) }}...</p>
                         </div>
                     </div>
                 </div>
-                @endforeach
+               
                  @else()
                 <div class="tab-pane" id="internal" role="tabpanel" aria-labelledby="internal-tab" aria-expanded="false">
                     <div class="card">
@@ -119,23 +170,28 @@ height: 44px;
                     </div>
                 </div>
                 @endif
+                @endforeach
+                @endif
+  
+                 
             </div>
         </div>
-        <!-- modal tambah surat -->
+        <!-- tombol modal tambah surat -->
         <div class="col-md-1" >
            <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top" data-toggle="modal" data-target="#exampleModalCenter" style="background-color: #4D6EFF; color: white;"> <i class="fa fa-plus-circle fa-2x" style="align-items: center;">
             </i>
         </div>
+        <!-- nav tab -->
             <div class="col-md-3 pr-0">
-            <ul class="nav flex-column nav-item me-3 float-right" id="myTab" role="tablist" aria-orientation="vertical" style="border-radius:0px;width: 191px">
+            <ul class="nav flex-column nav-item me-3 float-right" id="myTab" role="tablist" style="border-radius:0px;width: 191px">
             <li class="nav-item" role="presentation">
-            <a href="#semua" class="nav-link active" id="semua-tab" data-toggle="tab" data-target="#semua"  role="tab" aria-controls="semua" aria-selected="true" style="border-radius:0px">All</a></li>
+            <a href="#semua" class="nav-link active" id="semua-tab" data-toggle="tab"  role="tab" aria-controls="semua" aria-selected="true" style="border-radius:0px">All</a></li>
             <li class="nav-item" role="presentation">
-            <a href="#perusahaan" class="nav-link" id="perusahaan-tab" data-toggle="tab" data-target="#perusahaan"  role="tab" aria-controls="perusahaan" aria-selected="false" style="border-radius:0px">
+            <a href="#perusahaan" class="nav-link" id="perusahaan-tab" data-toggle="tab" role="tab" aria-controls="perusahaan" aria-selected="false" style="border-radius:0px">
             Perusahaan</a></li>
 
             <li class="nav-item" role="presentation">
-            <a href="#internal" class="nav-link" id="internal-tab" data-toggle="tab" data-target="#internal"  role="tab" aria-controls="internal" aria-selected="false" style="border-radius:0px">Internal</a>
+            <a href="#internal" class="nav-link" id="internal-tab" data-toggle="tab"  role="tab" aria-controls="internal" aria-selected="false" style="border-radius:0px">Internal</a>
             </li>
             </ul>
             </div>
@@ -149,13 +205,13 @@ height: 44px;
         <div class="container-fluid align-self-center">
             <div class="row ml-2" style="margin-top: 130px;text-align: center;">
                 <div class="col-sm-6" style="left: 10px;">
-                     <button type="button" class="btn kotak kanan">
+                     <button type="button" class="btn kotak kanan" data-toggle="modal" data-target="#unggahdokumen">
                     <p style="font-size: 18px;color: #484848">Unggah Dokumen</p>
                      <img src="{{asset('../asset/img/unggah.png')}}" class="center"style="width: 28px;">
                      </button>
                 </div>
                 <div class="col-sm-6"  style="left: 10px;">
-                     <button type="button" class="btn kotak kiri">
+                     <button type="button" class="btn kotak kiri"  data-toggle="modal" data-target="#buatfolder">
                         <p style="font-size: 18px;color: #484848">Folder Baru</p>
                        <img src="{{asset('../asset/img/folder.png')}}" class="center"style="width: 28px;">
                      </button>
@@ -166,7 +222,67 @@ height: 44px;
     </div>
   </div>
 </div>
+
+<!-- modal didalam modal upload -->
+<div class="modal fade baru" id="unggahdokumen" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body center" style="width: 757px;height: 446px;align-content: center;align-items: center;">
+        <div class="container-fluid align-self-center">
+            <div class="row ml-2" style="margin-top: 130px;text-align: center;">
+                <h4>Unggah File</h4>
+                <p>Pilih file dan folder untuk diunggah ke sistem</p>
+                 <form>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Jenis Surat</label>
+    <div class="col-sm-10">
+      <select class="form-control" id="JenisSurat" name="JenisSurat" value="" oninput="tandatt()" >
+    <option value="Perusahaan" selected>Perusahaan</option>
+      <option value="Internal">Internal</option>
+    </select>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputPassword" class="col-sm-2 col-form-label">Pilih File</label>
+    <div class="col-sm-10">
+      <input type="file" class="form-control" id="filesurat" name="filesurat" placeholder="comp/desktop/1111.docx">
+    </div>
+  </div>
+  <button type="submit" type="submit" class="btn btn-primary mb-2">Upload</button>
+</form>
+            </div>
+      </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal buat folder -->
+<div class="modal fade baru" id="buatfolder" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body center" style="width: 757px;height: 446px;align-content: center;align-items: center;">
+        <div class="container-fluid align-self-center">
+            <div class="row ml-2" style="margin-top: 130px;text-align: center;">
+                <h4>Folder Baru</h4>
+                <p>Buat Folder Baru</p>
+                 <form>
+  <div class="form-group row">
+    <label for="staticEmail" class="col-sm-2 col-form-label">Nama Folder</label>
+    <div class="col-sm-10">
+     <input type="text" class="form-control" id="JenisSurat" name="JenisSurat" placeholder="Test">
+    </div>
+  </div>
+  <button type="submit" type="submit" class="btn btn-primary mb-2">Simpan Folder</button>
+</form>
+            </div>
+      </div>
+        </div>
+    </div>
+  </div>
+</div>
 @endsection
+<!-- @foreach($datasurat as $surat) -->
 <script>
 $('#myTab a').click(function (e) {
      e.preventDefault();
@@ -175,4 +291,13 @@ $('#myTab a').click(function (e) {
      //removing active class from other selected/default tab
    
 });
+function mydisplay(x){
+  //var x = document.getElementById("icon-display{{$surat->id}}");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 </script>
+<!-- @endforeach -->
