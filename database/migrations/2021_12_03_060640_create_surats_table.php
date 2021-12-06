@@ -23,8 +23,8 @@ class CreateSuratsTable extends Migration
             $table->text('Isi');
             $table->string('SalamPenutup');
             $table->string('Pengirim');
+            $table->biginteger('id_category')->unsigned();
             $table->string('Ttd');
-            $table->string('JenisSurat');
             $table->timestamps();
         });
     }

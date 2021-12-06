@@ -28,10 +28,10 @@ Route::resource('listsurat', ListSuratController::class);
 
 
 
-Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
-Route::get('/personal', [FilterSuratController::class, 'personal']);
-Route::get('/internal', [FilterSuratController::class, 'internal']);
-
+// Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
+// Route::get('/personal', [FilterSuratController::class, 'personal']);
+// Route::get('/internal', [FilterSuratController::class, 'internal']);
+Route::post('/tambahfolder', [FilterSuratController::class, 'tambah']);
 // Route::get('/listsurat/internal', 'filtersurat@internal');
 
 // Route::get('/listsurat/personal', 'filtersurat@personal');
