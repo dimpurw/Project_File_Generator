@@ -229,26 +229,31 @@ height: 44px;
     <div class="modal-content">
       <div class="modal-body center" style="width: 757px;height: 446px;align-content: center;align-items: center;">
         <div class="container-fluid align-self-center">
-            <div class="row ml-2" style="margin-top: 130px;text-align: center;">
-                <h4>Unggah File</h4>
-                <p>Pilih file dan folder untuk diunggah ke sistem</p>
-                 <form>
+            <div class="row ml-2 " style="margin-top: 100px;justify-content: center;">
+                <div class="col-9 text-left"><h4 style="font-weight: 500;
+font-size: 32px;
+line-height: 39px;">Unggah File</h4></div>
+                <div class="col-9 text-left"><p style="font-weight: 300;
+font-size: 18px;
+line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
+                 <form class="form-group text-center">
   <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Jenis Surat</label>
-    <div class="col-sm-10">
-      <select class="form-control" id="JenisSurat" name="JenisSurat" value="" oninput="tandatt()" >
+    <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
+    <div class="col-sm-8">
+      <select class="form-control" id="JenisSurat" name="JenisSurat" value="">
     <option value="Perusahaan" selected>Perusahaan</option>
       <option value="Internal">Internal</option>
     </select>
     </div>
   </div>
   <div class="form-group row">
-    <label for="inputPassword" class="col-sm-2 col-form-label">Pilih File</label>
-    <div class="col-sm-10">
+    <label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
+    <div class="col-sm-8">
       <input type="file" class="form-control" id="filesurat" name="filesurat" placeholder="comp/desktop/1111.docx">
     </div>
   </div>
-  <button type="submit" type="submit" class="btn btn-primary mb-2">Upload</button>
+  <div class="col-sm-12 text-right">
+  <button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Upload</button></div>
 </form>
             </div>
       </div>
@@ -263,17 +268,22 @@ height: 44px;
     <div class="modal-content">
       <div class="modal-body center" style="width: 757px;height: 446px;align-content: center;align-items: center;">
         <div class="container-fluid align-self-center">
-            <div class="row ml-2" style="margin-top: 130px;text-align: center;">
-                <h4>Folder Baru</h4>
-                <p>Buat Folder Baru</p>
-                 <form>
+            <div class="row ml-2 " style="margin-top: 100px;justify-content: center;">
+                <div class="col-9 text-left"><h4 style="font-weight: 500;
+font-size: 32px;
+line-height: 39px;">Folder Baru</h4></div>
+                <div class="col-9 text-left"><p style="font-weight: 300;
+font-size: 18px;
+line-height: 22px">Buat Folder Baru</p></div>
+                 <form class="form-group text-center">
   <div class="form-group row">
-    <label for="staticEmail" class="col-sm-2 col-form-label">Nama Folder</label>
-    <div class="col-sm-10">
-     <input type="text" class="form-control" id="JenisSurat" name="JenisSurat" placeholder="Test">
+    <label for="inputPassword" class="col-sm-3 col-form-label">Nama Folder</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="filesurat" name="filesurat" placeholder="comp/desktop/1111.docx">
     </div>
   </div>
-  <button type="submit" type="submit" class="btn btn-primary mb-2">Simpan Folder</button>
+  <div class="col-sm-12 text-right">
+  <button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Upload</button></div>
 </form>
             </div>
       </div>

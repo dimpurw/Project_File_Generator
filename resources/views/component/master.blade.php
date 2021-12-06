@@ -15,7 +15,7 @@
 	<div id="content-wrapper" class="d-flex flex-column"> -->
 		@yield('content')
 	<!-- </div> -->
-</div>
+<!-- </div> -->
 </body>
 <script>
   function listIcon(divTag, id) {
