@@ -29,15 +29,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	background-color: #FFE5B6;
 }
 </style>
-
-<!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-	<a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 64px"></a>
-	<div class="container">
-	</div>
-</nav>
-<!-- Navbar -->
-
 <div class="container-fluid d-flex justify-content-center" style="height: 100%" >
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
