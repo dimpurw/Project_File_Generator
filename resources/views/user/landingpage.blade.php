@@ -1,3 +1,4 @@
+<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
 @extends('component.master')
 @section('content')
   <div class="sidenav">
@@ -7,17 +8,18 @@
             <div class="login-form">
             <h2>FILE GENERATOR</h2>
             <h3>Internal DevT Brain</h3>
-               <form>
+               <form method="POST" action="/login">
+                  @csrf
                   <div class="form-group">
                      <label>Email</label>
-                     <input type="text" class="form-control" placeholder="This is a text">
+                     <input type="text" name="email" class="form-control" placeholder="This is a text">
                   </div>
                   <div class="form-group">
                      <label>Password</label>
-                     <input type="password" class="form-control" placeholder="This is a text">
+                     <input type="password" name="password" class="form-control" placeholder="This is a text">
                   </div>
-                  <p><a href="#">Forget Password?</a></p>
-                  <button type="submit" class="btn btn-black">Login</button>
+                  <p><a href="{{ route('forget.password.get') }}">Forget Password?</a></p>
+                  <button type="submit" class="btn btn-black" style="width: 70%;">Login</button>
                </form>
                 <div class="info">
                     <p>Tidak punya akun?<a href="">minta Akun ke Admin?</a></p>

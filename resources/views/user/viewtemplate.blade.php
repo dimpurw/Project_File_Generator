@@ -91,53 +91,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 <!-- Navbar -->
 
 <div class="container-fluid" style="height: 100%" >
-	<form method="POST" action="{{ route('listsurat.store') }}">
-	@csrf
-  <div class="row">
-    <div class="col-5">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Tempat Penulisan Surat</label>
-    <input type="text" class="form-control" id='TempatPenulisan' name="TempatPenulisan" aria-describedby="later" placeholder="">
-    <small id="emailHelp" class="form-text text-muted"></small>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputname">Tanggal Penulisan Surat</label>
-    <input type="date" class="form-control" id="TanggalPenulisan" name="TanggalPenulisan" placeholder="" oninput="tanggallps()">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputname">Tujuan Surat</label>
-    <input type="text" class="form-control" id="TujuanSurat" name="TujuanSurat" placeholder="">
-  </div>
-   <div class="form-group">
-    <label for="exampleInputname">Alamat Tujuan</label>
-    <input type="text" class="form-control" id="AlamatTujuan" name="AlamatTujuan" placeholder="">
-  </div>
-   <div class="form-group">
-    <label for="exampleInputname">Salam Pembuka</label>
-    <input type="text" class="form-control" id="salampembuka" name="SalamPembuka" placeholder="">
-  </div>
-   <div class="form-group">
-    <label for="exampleInputname">Isi Surat</label>
-    <input type="text" class="form-control" id="isi" name="Isi" placeholder="">
-  </div>
-   <div class="form-group">
-    <label for="exampleInputname">Salam Penutupan</label>
-    <input type="text" class="form-control" id="salampenutup" name="SalamPenutup" placeholder="">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputname">Pengirim Surat</label>
-    <input type="text" class="form-control" id="Pengirim" name="Pengirim" placeholder="">
-  </div>
-   <div class="form-group">
-    <label >Tanda Tangan</label>
-    <select class="form-control" id="ttd" name="Ttd" value="" oninput="tandatt()" >
-    <option value="Ada">Ada</option>
-      <option value="Tidak Ada">Tidak Ada</option>
-    </select>
-  </div>
-    </div>
-    <div>   	
-    </div>
+
     <div class="col-7">
       <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
 		<div class="text-right" >
@@ -146,7 +100,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		<div class="hr"id='response_TanggalPenulisan'>
 			<p></p>
 		</div>
-		<div id='response_TujuanSurat' style="margin-top: 50px;">
+		<div id='response_TujuanPenulisan' style="margin-top: 50px;">
 			<p></p>
 		</div>
 		<div id='response_AlamatTujuan'  style="margin-top: 50px;">
@@ -170,11 +124,11 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 			</div>
 	<div class="form-row pull-right">
     <div class="col-custom-1" style="margin-right: 52px;;margin-top: 10.5px;">
-      <select class="custom-select" id="jenissurat" name="JenisSurat" style="width: 315px;height: 38px" >
+      <select class="custom-select" id="jenissurat" name="jenissurat" style="width: 315px;height: 38px" >
       	 <option selected>Folder</option>
     	<option value="Perusahaan">Perusahaan</option>
-      	<option value="Internal">Internal</option>
-       	<option value="Personal">Personal</option>
+      <option value="Internal">Internal</option>
+       <option value="Personal">Personal</option>
     </select>
     </div>
     <div class="col-custom-2">
@@ -187,7 +141,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 </div>
   <script>
        var TempatPenulisan = document.getElementById('TempatPenulisan');
-       var TujuanSurat = document.getElementById('TujuanSurat');
+       var TujuanPenulisan = document.getElementById('TujuanPenulisan');
        var AlamatTujuan = document.getElementById('AlamatTujuan');
        var salampenutup = document.getElementById('salampenutup');
        var salampembuka = document.getElementById('salampembuka');
@@ -198,8 +152,8 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     document.getElementById('response_TempatPenulisan').innerHTML = TempatPenulisan.value;
 	}
 	
-	TujuanSurat.onkeyup = function(){
-    document.getElementById('response_TujuanSurat').innerHTML = TujuanSurat.value;
+	TujuanPenulisan.onkeyup = function(){
+    document.getElementById('response_TujuanPenulisan').innerHTML = TujuanPenulisan.value;
 	}
 
 	AlamatTujuan.onkeyup = function(){

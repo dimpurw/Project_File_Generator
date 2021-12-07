@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\ListSuratController;
+use App\Http\Controllers\FilterSuratController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,16 +17,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::group(['middleware' => ['guest']], function () { 
+    Route::get('/', function () {
     return view('user.landingpage');
+    })->name('login');
+    Route::post('/login', [LoginController::class, 'authenticate']);
+    Route::get('/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+    Route::post('/forgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::get('/resetpassword/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+    Route::post('/resetpassword', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 });
 
-Route::get('/listsurat', function () {
-    return view('user.listsurat');
+Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::group(['middleware' => ['auth']], function () { 
+    
+    Route::resource('listsurat', ListSuratController::class);
+    Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
+    Route::get('/personal', [FilterSuratController::class, 'personal']);
+    Route::get('/internal', [FilterSuratController::class, 'internal']);
+    // Route::get('/listsurat/internal', 'filtersurat@internal');
+
+    // Route::get('/listsurat/personal', 'filtersurat@personal');
 });
-
-Route::get('/listsurat/create', function () {
-    return view('user.createtemplate');
-});
-
-
