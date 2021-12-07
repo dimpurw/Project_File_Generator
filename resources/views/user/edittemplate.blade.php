@@ -51,6 +51,7 @@
 			</div>
 			<div class="col-7">
 				<div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
+					@include('component.show')
 					<div class="text-right" >
 						<p id='response_TempatPenulisan'></p>
 					</div><br>
