@@ -16,20 +16,11 @@ html, body{
     align-items: center;
 }
 </style>
-<!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-warning">
-		<div class="d-flex justify-content-start">
-            <div class="back-button">
-                <a href="#"><img type="back" name="back" src="{{asset('asset/img/Back.png')}}"/></a>
-            </div>
-		</div>
-</nav>
-<!-- Navbar -->
 <div class="container-fluid">
     <form>
         <div class="form-group">
-            <div class="group1" style="display: block">
-                <div class="row justify-content-center mb-3">
+            <div class="group1" style="display: block; padding-top: 50px;">
+                <div class="row justify-content-center mb-3 my-auto">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
                         <input type="tempat" class="form-control" id="tempat">
@@ -99,12 +90,11 @@ html, body{
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="my-auto mx-auto">
-                <a href="#" id="toPage1" style="display: none">1</a>
-                <a href="#" id="toPage2" style="display: inline-block">2</a>
-                <a href="#" id="toPage1-2" style="display: none">1</a>
-                <a href="#" id="toPage3" style="display: inline-block">3</a>
-                <a href="#" id="toPage2-2" style="display: none">2</a>
+            <div class="mx-5">
+                <a href="#" id="toPage2" style="display: block"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
+                <a href="#" id="toPage1" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a>
+                <a href="#" id="toPage3" style="display: none"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
+                <a href="#" id="toPage2-2" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a> 
             </div>
             <div class="button-generate">
                 <input type="image" name="submit" src="{{asset('asset/img/Generate.png')}}">
@@ -128,7 +118,7 @@ html, body{
                 $('.group2').hide();
                 $('#toPage2').show();
                 $('#toPage1').hide();
-                $('#toPage3').show();
+                $('#toPage3').hide();
             });
             
             $('#toPage2-2').click(function() {
@@ -137,7 +127,6 @@ html, body{
                 $('.group3').hide();
                 $('#toPage2').hide();
                 $('#toPage2-2').hide();
-                $('#toPage1-2').hide();
                 $('#toPage1').show();
                 $('#toPage3').show();
             });
@@ -148,20 +137,8 @@ html, body{
                 $('.group3').show();
                 $('#toPage2-2').show();
                 $('#toPage2').hide();
-                $('#toPage1-2').show();
                 $('#toPage1').hide();
                 $('#toPage3').hide();
-            });
-            
-            $('#toPage1-2').click(function() {
-                $('.group1').show();
-                $('.group2').hide();
-                $('.group3').hide();
-                $('#toPage2-2').hide();
-                $('#toPage1-2').hide();
-                $('#toPage2').show();
-                $('#toPage1').hide();
-                $('#toPage3').show();
             });
 </script>
 @endsection

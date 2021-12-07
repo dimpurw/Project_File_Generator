@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\surat;
+use App\Models\category;
 use Illuminate\Http\Request;
-
+use DB;
 class ListSuratController extends Controller
 {
     /**
@@ -14,8 +15,17 @@ class ListSuratController extends Controller
      */
     public function index()
     {
-        $datasurat = surat::latest()->paginate(5);
-        return view('user.listsurat.all', compact('datasurat'));
+        $datasurat = surat::latest()->get();
+        $folder = category::all();
+      //  $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
+        // $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
+        //$filters = surat::select('JenisSurat')->get();
+        // $filter = $filter->unique();
+         // $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
+         //  $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
+        //return view('user.listsurat.allq', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
+        return view('user.listsurat', compact('datasurat','folder'));
+
     }
 
     /**
@@ -36,22 +46,11 @@ class ListSuratController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'TempatPenulisan' => 'required',
-            'TanggalPenulisan' => 'required',
-            'TujuanSurat' => 'required',
-            'AlamatTujuan' => 'required',
-            'SalamPembuka' => 'required',
-            'Isi' => 'required',
-            'SalamPenutup' => 'required',
-            'Pengirim' => 'required',
-            'Ttd' => 'required',
-            'JenisSurat' => 'required',
-        ]);
-
         $input = $request->all();
-        $surat = surat::create($input);
-        // dd($surat);
+        $datasurat = surat::create($input);
+        $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());
+        $datasurat->file_surat = $request->file('file_surat')->getClientOriginalName();
+        $datasurat->save();
         return redirect(url('/listsurat'));
     }
 
@@ -63,8 +62,8 @@ class ListSuratController extends Controller
      */
     public function show($id)
     {
-        $surat = surat::find($id);
-        dd($surat);
+        $datasurat = surat::find($id);
+        dd($datasurat);
     }
 
     /**
@@ -75,7 +74,8 @@ class ListSuratController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datasurat = surat::find($id);
+        return view('user.edittemplate', compact ('datasurat'));
     }
 
     /**

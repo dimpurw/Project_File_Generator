@@ -17,26 +17,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => ['guest']], function () { 
+Route::group(['middleware' => ['guest']], function () {
     Route::get('/', function () {
     return view('user.landingpage');
     })->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
     Route::get('/forgetpassword', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-    Route::post('/forgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+    Route::post('/forgetpassword', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
     Route::get('/resetpassword/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
     Route::post('/resetpassword', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 });
 
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::group(['middleware' => ['auth']], function () { 
-    
-    Route::resource('listsurat', ListSuratController::class);
-    Route::get('/perusahaan', [FilterSuratController::class, 'perusahaan']);
-    Route::get('/personal', [FilterSuratController::class, 'personal']);
-    Route::get('/internal', [FilterSuratController::class, 'internal']);
-    // Route::get('/listsurat/internal', 'filtersurat@internal');
+Route::group(['middleware' => ['auth']], function () {
 
-    // Route::get('/listsurat/personal', 'filtersurat@personal');
+    Route::resource('listsurat', ListSuratController::class);
+    Route::post('/tambahfolder', [FilterSuratController::class, 'tambah']);
+    Route::get('/edit', function () {
+        return view('user.edittemplate');
+    });
+    Route::get('/generate', function () {
+        return view('user.generate');
+    });
 });
