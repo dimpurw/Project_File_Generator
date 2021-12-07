@@ -11,7 +11,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-warning" style="background-color: #FFBE4B;height: 64px">
-    <a class="navbar-brand" href="#" ><img src="{{asset('../asset/img/back.png')}}" style="width: 24px"></a>
+    <a class="navbar-brand" href="{{url('/logout')}}" ><img src="{{asset('../asset/img/back.png')}}" style="width: 24px"></a>
 </nav>
 @yield('content')
 </body>

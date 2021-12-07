@@ -11,7 +11,8 @@
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
-        "phpoffice/phpword": "^0.18.2"
+        "phpoffice/phpword": "^0.18.2",
+        "uxweb/sweet-alert": "^2.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
