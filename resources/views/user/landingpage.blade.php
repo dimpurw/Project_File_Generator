@@ -1,8 +1,8 @@
-<link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
 @extends('component.master')
+@section('title','Landing Page')
 @section('content')
   <div class="sidenav">
-      </div>
+   </div>
       <div class="main">
          <div class="col-sm-9 col-sm-9">
             <div class="login-form">

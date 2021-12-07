@@ -1,5 +1,4 @@
- <link href="{{asset('css/bootstrap2.css')}}" rel="stylesheet" type="text/css">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+@section('title','Edit')
 @extends('component.master')
 @section('content')
 <style>
