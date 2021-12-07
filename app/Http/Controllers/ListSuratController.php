@@ -63,7 +63,12 @@ class ListSuratController extends Controller
     public function show($id)
     {
         $datasurat = surat::find($id);
-        dd($datasurat);
+        $file = $datasurat->file_surat;
+        $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
+        $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
+        $htmlWriter->save('../resources/views/component/show.html');
+        // dd($datasurat->file_surat);
+        return view('user.view_document', compact('datasurat'));
     }
 
     /**
