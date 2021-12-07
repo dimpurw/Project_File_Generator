@@ -40,10 +40,10 @@
 				<h2>Value Data File</h2>
 				<div class="form-inline-block">
 					<div class="form-group" id="dynamic_field">
-						<table>	
+						<table style="border: none;">	
 							<tr>
-								<td><input type="text" name="name[]" placeholder="Tambah Value" class="form-control" /></td>
-								<td><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
+								<td style="border: none;" ><input type="text" name="name[]" placeholder="Tambah Value" class="form-control" style='border: none;'/></td>
+								<td style="border: none;" ><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
 							</tr>
 						</table>
 					</div>
@@ -141,7 +141,7 @@
 
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name[]" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td style="border: none;" ><input type="text" name="name[]" placeholder="Masukkan Value" class="form-control name_list" /></td><td style="border: none;"><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
       });  
 
 

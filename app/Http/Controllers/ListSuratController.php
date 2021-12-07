@@ -68,7 +68,7 @@ class ListSuratController extends Controller
         $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
         $htmlWriter->save('../resources/views/component/show.html');
         // dd($datasurat->file_surat);
-        return view('user.edittemplate', compact('datasurat'));
+        return view('user.view_document', compact('datasurat'));
     }
 
     /**
