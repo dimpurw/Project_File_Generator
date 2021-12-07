@@ -97,8 +97,11 @@ class ListSuratController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $datasurat = surat::find($id);
+        $datasurat->delete();
+        return redirect('/listsurat')->with('sukses','dataterhapus');
+
     }
 
      public function perusahaan()

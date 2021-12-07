@@ -58,11 +58,25 @@ height: 44px;
     : #FFFFFF
 }
 </style>
+
 <div class="container-fluid">
     <div class="row ml-5 mt-5">
         <div class="col-md-8 mb-3" #style="background-color: red;height: 200px">
        <!--  Konten surat -->
             <div class="tab-content">
+          @if(session('sukses'))
+          <!-- Modal -->
+          <div role="tabpanel" class="alert tab-pane active pb-4"  aria-expanded="true" >
+                <div class="card row" style="height: 117px;background-color: #FDC0C0">
+          <div class="card-body"  style="border-left: 16px solid #FF3C3C!important;text-align: justify;padding-top: 35px;" >
+         <p class="card-text" style=" text-align: center; color:#FF0000; font-weight: 500;
+font-size: 24px;">Surat Perjanjian Kerjasama has been Deleted <i class="fa fa-trash-o"></i></p>
+          </div>
+        </div>
+          </div>
+          @endif
+
+
                 <!-- semua surat -->    
                  @if (isset($datasurat) && count($datasurat) > 0)
                   @foreach($datasurat as $surat)
@@ -71,15 +85,14 @@ height: 44px;
                   ?>
                 <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >
                     <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
-                        <div class="card-body pb-0 col-7"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">
-                            <div>
+                        <div class="card-body pb-0 col-7"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">                  
                              <h4 style="font-weight: normal; font-size: 18px;">{{$surat->file_surat}}</h4>
                              <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
-                             <p ></p></div>
+                             <p ></p>
                         </div>
 
-                        <div class="card-body col-md-6 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
-                             <div class="icon-display" >
+                        <div class="card-body col-md-8 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
+                             
                             <a href="{{route('listsurat.show',$surat->id)}}"><button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -87,7 +100,7 @@ height: 44px;
                                 >
                                 <i class="fa fa-eye"></i>
                             </button></a>
-                            <a href="">
+                            <a href="{{route('listsurat.edit',$surat->id)}}">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
@@ -95,22 +108,23 @@ height: 44px;
                                 >
                                 <i class="fa fa-pencil"></i>
                             </button></a>
-                           <a href=""><button
+                           <a href="{{url('/generate')}}"><button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
                                 id="" style="background: #C5FFEA; border-radius: 4px;width: 72px;height: 72px;transform: translate(10px, -45px);"
                                 >
                                 <i class="fa fa-print"></i>
                             </button></a>
-                            <a href=""><button
-                                type="button"
-                                class="btn btn-floating btn-lg mt-5 mr-2"
-                                onclick="deleteList(1);"
+                            <a href="{{url('/listsurat/delete/'.$surat->id)}}">
+                           
+                            <button
+                                type="submit"
+                                class="btn btn-floating btn-lg mt-5"
                                 id="" style="background: #FDC0C0; border-radius: 4px;width: 72px;height: 72px;transform: translate(10px, -45px);"
                                 >
                                 <i class="fa fa-trash-o"></i>
                             </button></a>
-                        </div>
+                        
                         </div>
                     </div>
                 </div>                         
@@ -266,5 +280,8 @@ function mydisplay(x){
     x.style.display = "none";
   }
 }
+$(".alert").fadeTo(2000, 500).slideUp(500, function(){
+    $(".alert").slideUp(500);
+});
 </script>
 <!-- @endforeach -->
