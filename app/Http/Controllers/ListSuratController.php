@@ -24,7 +24,7 @@ class ListSuratController extends Controller
          // $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
          //  $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
         //return view('user.listsurat.allq', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
-        return view('user.listsurat.allq', compact('datasurat','folder'));
+        return view('user.listsurat', compact('datasurat','folder'));
 
     }
 
