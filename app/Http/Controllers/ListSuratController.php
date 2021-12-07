@@ -35,7 +35,7 @@ class ListSuratController extends Controller
      */
     public function create()
     {
-       return view('user.createtemplate');
+       return view('user.view_document');
     }
 
     /**
