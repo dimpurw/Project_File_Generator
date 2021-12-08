@@ -89,12 +89,14 @@ class ListSuratController extends Controller
     public function edit($id)
     {
         $folder = category::all();
+        //$datasurat =  surat::join('category', 'surat.id','=', 'category.id_category')->where('surat.id',$id)->get();
         $datasurat = surat::find($id);
+        $datasurats = DB::table('surat as st')->join('category as ct', 'ct.id', '=', 'st.id_category')->first();
         $file = $datasurat->file_surat;
         $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
         $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
         $htmlWriter->save('../resources/views/component/edit.html');
-        return view('user.edittemplate', compact ('datasurat','folder'));
+        return view('user.edittemplate', compact ('datasurat','folder','datasurats'));
     }
 
     public function tambah(Request $request,$id)
