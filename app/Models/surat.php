@@ -13,9 +13,9 @@ class surat extends Model
         'id_category'
     ];
     
-    public function jeniscategory()
+    public function category()
     {
-        return $this->belongsto(category::class, 'id_category');
+        return $this->hasOne(category::class, 'id_category');
     }
 
 }
