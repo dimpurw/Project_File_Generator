@@ -222,6 +222,10 @@ line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
     <label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
     <div class="col-sm-8">
       <input type="file" class="form-control" id="filesurat" name="file_surat" placeholder="comp/desktop/1111.docx">
+       <span class="form-text" style="font-size: 12px">format file: docx,doc,docm,dot</span>
+      @if($errors->has('file_surat'))
+        <span class="alert-danger" style="font-size: 12px">{{($errors->first('file_surat'))}}</span>
+       @endif
     </div>
   </div>
   <div class="col-sm-12 text-right">
@@ -252,7 +256,10 @@ line-height: 22px">Buat Folder Baru</p></div>
   <div class="form-group row text-left">
     <p class="col-4">Nama Folder</p>
     <div class="col-sm-8">
-      <input type="text" class="form-control" id="filesurat" name="jenis" placeholder="comp/desktop/1111.docx">
+      <input type="text" class="form-control" id="filesurat" name="jenis" placeholder="comp/desktop/1111.docx" value="{{old('jenis')}}">
+      @if($errors->has('jenis'))
+        <span class="alert-danger" style="font-size: 12px" style="font-size: 12px">{{($errors->first('jenis'))}}</span>
+       @endif
     </div>
   </div>
   <div class="col-sm-12 text-right">

@@ -46,6 +46,15 @@ class ListSuratController extends Controller
      */
     public function store(Request $request)
     {
+        $messages = [
+                    'required' => 'Silahkan Pilih File !!!',
+                    'mimes' => 'Format File tidak cocok'
+        ];
+
+         $this->validate($request,[         
+            'file_surat'=>'required|mimes:docx,doc,docm,dotx',
+        ], $messages
+    );
         $input = $request->all();
         $datasurat = surat::create($input);
         $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());

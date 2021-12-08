@@ -23,7 +23,14 @@ class FilterSuratController extends Controller
         return view('user.listsurat.perusahaan', compact('datasurat'));
     }
      public function tambah(Request $request)
-    {
+    {$messages = [
+    'required' => 'Silahkan Masukkan Nama Folder !!!',
+    'unique' => 'Nama Folder Sudah Ada !!!',
+    ];
+         $this->validate($request,[         
+            'jenis'=>'required|unique:category|',
+        ],$messages
+    );
         $input = $request->all();
         $surat = category::create($input);
         // dd($surat);
