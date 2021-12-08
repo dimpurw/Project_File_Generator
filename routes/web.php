@@ -34,6 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('listsurat', ListSuratController::class);
+    Route::post('listsurat/{id}/tambah', [ListSuratController::class, 'tambah'])->name('tambahfile');
     Route::post('/tambahfolder', [FilterSuratController::class, 'tambah']);
     Route::get('/edit', function () {
         return view('user.edittemplate');

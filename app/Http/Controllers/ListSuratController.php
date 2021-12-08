@@ -79,10 +79,24 @@ class ListSuratController extends Controller
      */
     public function edit($id)
     {
+        $folder = category::all();
         $datasurat = surat::find($id);
-        return view('user.edittemplate', compact ('datasurat'));
+        $file = $datasurat->file_surat;
+        $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
+        $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
+        $htmlWriter->save('../resources/views/component/edit.html');
+        return view('user.edittemplate', compact ('datasurat','folder'));
     }
 
+    public function tambah(Request $request,$id)
+    {
+        $datasurat = surat::find($id);
+        $request->file('file_surat')->move('folder/temp', $request->file('file_surat')->getClientOriginalName());
+        $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/temp/' . $request->file('file_surat')->getClientOriginalName());
+        $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
+        $htmlWriter->save('../resources/views/component/temp.html');
+        return view('user.edittemplate', compact ('datasurat'));
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -92,7 +106,15 @@ class ListSuratController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $datasurat = surat::find($id);
+        $file = $datasurat->file_surat;
+
+        $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('../public/folder/' . $file);
+
+        $phpWord->setValue('{Tujuan_', 'tes1');
+
+        $phpWord->saveAs('../public/folder/'. $file);
+        
     }
 
     /**

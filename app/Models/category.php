@@ -9,4 +9,9 @@ class category extends Model
 {
    protected $table = 'category';
     protected $fillable = ['jenis'];
+
+    public function surat()
+    {
+        return $this->belongsto(surat::class);
+    }
 }

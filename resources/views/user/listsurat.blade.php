@@ -88,7 +88,7 @@ height: 44px;
                                 >
                                 <i class="fa fa-eye"></i>
                             </button></a>
-                            <a href="">
+                            <a href="{{route('listsurat.edit',$surat->id)}}">
                             <button
                                 type="button"
                                 class="btn btn-floating btn-lg mt-5 mr-2"
