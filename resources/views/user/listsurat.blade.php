@@ -68,7 +68,7 @@ height: 44px;
           <!-- Modal -->
           <div role="tabpanel" class="alert tab-pane active pb-4"  aria-expanded="true" >
                 <div class="card row" style="height: 117px;background-color: #FDC0C0">
-          <div class="card-body"  style="border-left: 16px solid #FF3C3C!important;text-align: justify;padding-top: 35px;" >
+          <div class="card-body pb-0"  style="border-left: 16px solid #FF3C3C!important;text-align: justify;padding-top: 35px;" >
          <button type="button" class="close" data-dismiss="alert">&times;</button>
          <p class="card-text" style=" text-align: center; color:#FF0000; font-weight: 500;
 font-size: 24px;">Surat has been Deleted <i class="fa fa-trash-o"></i></p>
@@ -87,13 +87,13 @@ font-size: 24px;">Surat has been Deleted <i class="fa fa-trash-o"></i></p>
                   ?>
                 <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >
                     <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
-                        <div class="card-body pb-0 col-7"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">                  
+                        <div class="card-body pb-0 col-6"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">                  
                              <h4 style="font-weight: normal; font-size: 18px;">{{$surat->file_surat}}</h4>
                              <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
                              <p ></p>
                         </div>
 
-                        <div class="card-body col-md-8 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
+                        <div class="card-body col-md-7 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
                              
                             <a href="{{route('listsurat.show',$surat->id)}}"><button
                                 type="button"
