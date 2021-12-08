@@ -35,7 +35,9 @@
 }
 </style>
 <div class="container-fluid" style="height: 100%">
-	<form method="POST" action="{{ route('listsurat.store') }}">  
+	<form method="POST" name="add_name" id="add_name" action="{{ route('listsurat.update',$datasurat->id) }}">
+	@method('PATCH')
+		@csrf  
 		<div class="row">
 			<div class="col-5">
 				<h2>Value Data File</h2>
@@ -52,7 +54,8 @@
 			</div>
 			<div class="col-7">
 				<div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
-					@include('component.show')
+					@include('component.edit')
+					@include('component.temp')
 					<div class="text-right" >
 						<p id='response_TempatPenulisan'></p>
 					</div><br>
@@ -81,13 +84,57 @@
 						<p></p>
 					</div>
 				</div>
-				<div class="col-custom-2">
-					<button type="submit" class="btn-lg btn-warning float-right" style="color: white;">Simpan</button>   
+				<div class="col-custom-2 float-right">
+					<!-- tombol modal tambah surat -->	
+           			<button type="button" class="btn btn-floating btn-lg" data-toggle="modal" data-target="#exampleModalCenter" style="background-color: #4D6EFF; color: white;">Perbaruhi</button>
+					<button type="submit" class="btn-lg btn-warning float-right ml-3" style="color: white;">Simpan</button>   
 				</div>
 			</div>
 		</div>
   	</form>
 </div>
+
+<!-- modal didalam modal upload -->
+<div class="modal fade baru" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body center" style="width: 757px;height: 446px;align-content: center;align-items: center;">
+        <div class="container-fluid align-self-center">
+            <div class="row ml-2 " style="margin-top: 100px;justify-content: center;">
+                <div class="col-9 text-left"><h4 style="font-weight: 500;
+font-size: 32px;
+line-height: 39px;">Unggah File</h4></div>
+                <div class="col-9 text-left"><p style="font-weight: 300;
+font-size: 18px;
+line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
+                 <form class="col-9 text-center" enctype="multipart/form-data" method="post" action="{{ route('tambahfile', ['id' => $datasurat->id]) }}">
+  @csrf
+                 <div class="form-group row text-left">
+    <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
+    <div class="col-sm-8">
+       
+      <select class="form-control" id="JenisSurat" name="id_category" value="">
+		<option value="" disabled></option>
+      
+    </select>
+    </div>
+  </div>
+  <div class="form-group row text-left">
+    <label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
+    <div class="col-sm-8">
+      <input type="file" class="form-control" id="filesurat" name="file_surat" placeholder="comp/desktop/1111.docx">
+    </div>
+  </div>
+  <div class="col-sm-12 text-right">
+  <button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Upload</button></div>
+</form>
+            </div>
+      </div>
+        </div>
+    </div>
+  </div>
+</div>
+
   <script>
        var TempatPenulisan = document.getElementById('TempatPenulisan');
        var TujuanSurat = document.getElementById('TujuanSurat');
@@ -137,12 +184,12 @@
 <script>
     $(document).ready(function(){      
       var postURL = "<?php echo url('addmore'); ?>";
-      var i=1;  
+      var i=0;  
 
 
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name[]" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name'+i+'" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
       });  
 
 
@@ -150,6 +197,7 @@
            var button_id = $(this).attr("id");   
            $('#row'+button_id+'').remove();  
       });  
-    });  
+    });
+
 </script>
 @endsection
