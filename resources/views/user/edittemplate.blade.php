@@ -35,8 +35,7 @@
 }
 </style>
 <div class="container-fluid" style="height: 100%">
-	<form method="POST" name="add_name" id="add_name" action="{{ route('listsurat.update',$datasurat->id) }}">
-	@method('PATCH')
+	<form method="POST" name="add_name" id="add_name" action="{{ route('tambahfile',$datasurat->id) }}">
 		@csrf  
 		<div class="row">
 			<div class="col-5">
@@ -45,7 +44,7 @@
 					<div class="form-group" id="dynamic_field">
 						<table>	
 							<tr>
-								<td><input type="text" name="name[]" placeholder="Tambah Value" class="form-control" /></td>
+								<td><input type="text" name="variable[0]" placeholder="Tambah Value" class="form-control" /></td>
 								<td><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
 							</tr>
 						</table>
@@ -55,7 +54,6 @@
 			<div class="col-7">
 				<div class="card shadow-lg p-3 mb-5 bg-white rounded" style="font-size: 18px">
 					@include('component.edit')
-					@include('component.temp')
 					<div class="text-right" >
 						<p id='response_TempatPenulisan'></p>
 					</div><br>
@@ -189,7 +187,7 @@ line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
 
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="name'+i+'" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="variable['+i+']" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
       });  
 
 

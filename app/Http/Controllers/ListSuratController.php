@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\surat;
 use App\Models\category;
+use App\Models\Value;
 use Illuminate\Http\Request;
 use DB;
 class ListSuratController extends Controller
@@ -88,14 +89,22 @@ class ListSuratController extends Controller
         return view('user.edittemplate', compact ('datasurat','folder'));
     }
 
-    public function tambah(Request $request,$id)
+    public function tambah(Request $request, $id)
     {
-        $datasurat = surat::find($id);
-        $request->file('file_surat')->move('folder/temp', $request->file('file_surat')->getClientOriginalName());
-        $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/temp/' . $request->file('file_surat')->getClientOriginalName());
-        $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
-        $htmlWriter->save('../resources/views/component/temp.html');
-        return view('user.edittemplate', compact ('datasurat'));
+        $variable = [];
+
+        // foreach ($request->$input('variable') as $key => $value){
+        //     $variable["variable.{$key}"] = 'required';
+        // }
+
+        foreach ($request->variable as $key => $value) {
+            dd($value);
+        }
+
+        // $input['id_surats'] = $id;
+        // $value = Value::create($input);
+        // $value->save();
+        // return redirect(url('/listsurat'));
     }
     /**
      * Update the specified resource in storage.
@@ -114,7 +123,6 @@ class ListSuratController extends Controller
         $phpWord->setValue('{Tujuan_', 'tes1');
 
         $phpWord->saveAs('../public/folder/'. $file);
-        
     }
 
     /**
