@@ -16,6 +16,7 @@ class CreateSuratsTable extends Migration
         Schema::create('surat', function (Blueprint $table) {
             $table->id();
             $table->biginteger('id_category')->unsigned();
+            $table->biginteger('id_users')->unsigned();
             $table->binary('file_surat');
             $table->timestamps();
         });

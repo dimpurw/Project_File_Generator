@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\surat;
 use App\Models\category;
+use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use DB;
+use File;
 class ListSuratController extends Controller
 {
     /**
@@ -55,6 +58,7 @@ class ListSuratController extends Controller
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
         ], $messages
     );
+
         $input = $request->all();
         $datasurat = surat::create($input);
         $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());
@@ -137,6 +141,11 @@ class ListSuratController extends Controller
     public function destroy($id)
     {   
         $datasurat = surat::find($id);
+        $dok = app_path().'../public/folder/'.$datasurat->file_surat;
+
+     if(\File::exists(public_path('folder/'.$datasurat->file_surat))){
+       \File::delete(public_path('folder/'.$datasurat->file_surat));
+    }
         $datasurat->delete();
         return redirect('/listsurat')->with('sukses','dataterhapus');
 
