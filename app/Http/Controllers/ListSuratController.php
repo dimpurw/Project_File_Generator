@@ -58,9 +58,8 @@ class ListSuratController extends Controller
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
         ], $messages
     );
-
-        $input = $request->all();
-        $datasurat = surat::create($input);
+        $datasurat = surat::create($request->all());
+        //$datasurat->judul_surat = $request->file_surat;
         $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());
         $datasurat->file_surat = $request->file('file_surat')->getClientOriginalName();
         $datasurat->save();

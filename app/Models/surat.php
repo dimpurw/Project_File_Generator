@@ -9,6 +9,7 @@ class surat extends Model
 {
     protected $table = 'surat';
     protected $fillable = [
+        // 'judul_surat',
         'file_surat',
         'id_category',
         'id_users',

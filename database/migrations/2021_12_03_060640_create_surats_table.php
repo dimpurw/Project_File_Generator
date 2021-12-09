@@ -17,6 +17,7 @@ class CreateSuratsTable extends Migration
             $table->id();
             $table->biginteger('id_category')->unsigned();
             $table->biginteger('id_users')->unsigned();
+            //$table->string('judul_surat');
             $table->binary('file_surat');
             $table->timestamps();
         });
