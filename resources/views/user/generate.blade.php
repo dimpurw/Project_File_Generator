@@ -43,21 +43,21 @@ html, body{
                 <div class="row justify-content-center mb-3 my-auto">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                         <div class="col-md-5 mx-auto">
                             <label for="tempat">Tempat Penulisan Surat</label>
-                            <input type="tempat" class="form-control" id="tempat">
+                            <input type="text" class="form-control" id="tempat">
                         </div>
                         <div class="col-md-5 mx-auto">
                             <label for="tujuan">Tujuan Surat</label>
-                            <input type="tujuan" class="form-control" id="tujuan">
+                            <input type="text" class="form-control" id="tujuan">
                         </div>
                 </div>
                 <hr>
@@ -66,21 +66,21 @@ html, body{
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <hr>
@@ -89,21 +89,21 @@ html, body{
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <hr>
