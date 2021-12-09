@@ -5,8 +5,8 @@
 .card:hover{
      transform: translateX(50px);
   box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
-  
-} 
+
+}
 ul.nav-item li.nav-link:hover{
     color: #FFFFFF;
     transform: translateX(-18px);
@@ -44,7 +44,7 @@ border: 1px solid #B7B7B7;
    justify-content: center;
 align-items: center;
 padding: 24px 16px;
-    }  
+    }
 .kotak a img{
     width: 46.75px;
 height: 44px;
@@ -75,18 +75,18 @@ height: 44px;
           </div>
         </div>
         @endif
-        <!-- semua surat -->    
-          @if (isset($datasurat) && count($datasurat) > 0)
-          @foreach($datasurat as $surat)
-          <?php 
+        <!-- semua surat -->
+        @if (isset($datasurat) && count($datasurat) > 0)
+        @foreach($datasurat as $surat)
+          <?php
             $jenis = $surat->id_category;
           ?>
         <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >
           <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
-            <div class="card-body pb-0 col-6"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">                  
-                  <h4 style="font-weight: normal; font-size: 18px;">{{$surat->file_surat}}</h4>
-                  <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
-                  <p ></p>
+            <div class="card-body pt-2 col-6"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">
+                  <h4 style="font-weight: normal; font-size: 18px;">{{substr($surat->file_surat,0,35)}}</h4>
+                  <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - {{$surat->users->name}}  <a href="#" target="_blank" style="color: #FFBE4B;">{{$surat->Pengirim}}</a></span>
+                  <p >{{substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry', 0, 55) }}...</p>
             </div>
             <div class="card-body col-md-7 icon-display"  id="icon-display{{ $surat->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
               <a href="{{route('listsurat.show',$surat->id)}}">
@@ -127,18 +127,20 @@ height: 44px;
               </a>
             </div>
           </div>
-        </div>                         
+        </div>
         @endforeach
         @else()
         <div role="tabpanel" class="tab-pane active pb-4" id="semua" aria-labelledby="semua-tab" aria-expanded="true" >Tidak ada Data </div>
         @endif
       </div>
     </div>
+
     <!-- tombol modal tambah surat -->
     <div class="col-md-1" >
         <button type="button" class="btn btn-floating btn-lg" id="btn-back-to-top" data-toggle="modal" data-target="#exampleModalCenter" style="background-color: #4D6EFF; color: white;"> <i class="fa fa-plus-circle fa-2x" style="align-items: center;">
         </i>
     </div>
+
     <!-- nav tab -->
     <div class="col-md-3 pr-0">
       <ul class="nav flex-column nav-item me-3 float-right" id="myTab" role="tablist" style="border-radius:0px;width: 191px">
@@ -192,6 +194,7 @@ height: 44px;
             <div class="col-9 text-left"><p style="font-weight: 300; font-size: 18px; line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
             <form class="col-9 text-center" enctype="multipart/form-data" method="post" action="{{route('listsurat.store')}}">
             @csrf
+            <input type="text" class="form-control" id="id_users" name="id_users" value="{{auth()->user()->id}}" hidden>
               <div class="form-group row text-left">
                 <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
                 <div class="col-sm-8">
@@ -254,17 +257,13 @@ height: 44px;
   </div>
 </div>
 @endsection
-<!-- @foreach($datasurat as $surat) -->
+
 <script>
 $('#myTab a').click(function (e) {
      e.preventDefault();
     $(this).tab('show');
-
-     //removing active class from other selected/default tab
-   
 });
 function mydisplay(x){
-  //var x = document.getElementById("icon-display{{$surat->id}}");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
@@ -275,4 +274,3 @@ $(".alert").fadeTo(2000, 500).slideUp(500, function(){
     $(".alert").slideUp(500);
 });
 </script>
-<!-- @endforeach -->

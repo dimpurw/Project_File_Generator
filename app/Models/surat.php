@@ -10,12 +10,17 @@ class surat extends Model
     protected $table = 'surat';
     protected $fillable = [
         'file_surat',
-        'id_category'
+        'id_category',
+        'id_users',
     ];
     
-    public function category()
+    public function categorys()
     {
-        return $this->hasOne(category::class, 'id_category');
+        return $this->hasmany(category::class, 'id_category', 'id');
+    }
+     public function users()
+    {
+        return $this->belongsto(user::class, 'id_users');
     }
 
 }
