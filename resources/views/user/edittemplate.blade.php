@@ -34,7 +34,7 @@
 }
 </style>
 <div class="container-fluid" style="height: 100%">
-	<form method="POST" name="add_name" id="add_name" action="{{ route('tambahfile',$datasurat->id) }}">
+	<form method="POST" action="{{ route('tambahfile',$datasurat->id) }}">
 		@csrf  
 		<div class="row">
 			<div class="col-5">
@@ -43,7 +43,7 @@
 					<div class="form-group">
 						<table style="border: none;" id="dynamic_field">	
 							<tr>
-								<td><input type="text" name="multiInput[0][variable]" placeholder="Tambah Value" class="form-control" /></td>
+								<td><input type="text" name="multiInput[0]" placeholder="Tambah Value" class="form-control" /></td>
 								<td><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
 							</tr>
 						</table>
@@ -99,13 +99,14 @@
         <div class="container-fluid align-self-center">
             <div class="row ml-2 " style="margin-top: 100px;justify-content: center;">
                 <div class="col-9 text-left"><h4 style="font-weight: 500;
-font-size: 32px;
-line-height: 39px;">Unggah File</h4></div>
-                <div class="col-9 text-left"><p style="font-weight: 300;
-font-size: 18px;
-line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
-                 <form class="col-9 text-center" enctype="multipart/form-data" method="post" action="{{ route('tambahfile', ['id' => $datasurat->id]) }}">
-  @csrf
+				font-size: 32px;
+				line-height: 39px;">Unggah File</h4></div>
+								<div class="col-9 text-left"><p style="font-weight: 300;
+				font-size: 18px;
+				line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
+                 <form class="col-9 text-center" enctype="multipart/form-data" method="post" action="{{ route('listsurat.update', $datasurat->id) }}">
+				@method('PATCH')
+				 @csrf
                  <div class="form-group row text-left">
     <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
     <div class="col-sm-8">
@@ -182,8 +183,8 @@ line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
       var i=0;  
 
       $('#add').click(function(){  
-           i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="multiInput['+i+'][variable]" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
+           ++i;  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="multiInput['+i+']" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
       });  
 
 
