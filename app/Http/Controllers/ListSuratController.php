@@ -106,13 +106,8 @@ class ListSuratController extends Controller
 
     public function tambah(Request $request, $id)
     {
-        $variable = [];
 
-        // foreach ($request->$input('variable') as $key => $value){
-        //     $variable["variable.{$key}"] = 'required';
-        // }
-
-        foreach ($request->variable as $key => $value) {
+        foreach ($request->multiInput as $key => $value) {
             dd($value);
         }
 

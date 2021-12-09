@@ -40,10 +40,10 @@
 			<div class="col-5">
 				<h2>Value Data File</h2>
 				<div class="form-inline-block">
-					<div class="form-group" id="dynamic_field">
-						<table style="border: none;">	
+					<div class="form-group">
+						<table style="border: none;" id="dynamic_field">	
 							<tr>
-								<td><input type="text" name="variable[0]" placeholder="Tambah Value" class="form-control" /></td>
+								<td><input type="text" name="multiInput[0][variable]" placeholder="Tambah Value" class="form-control" /></td>
 								<td><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
 							</tr>
 						</table>
@@ -179,22 +179,18 @@ line-height: 22px">Pilih file dan folder untuk diunggah ke sistem</p></div>
 @endsection
 @section('page-script')
 <script>
-    $(document).ready(function(){      
-      var postURL = "<?php echo url('addmore'); ?>";
       var i=0;  
-
 
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="variable['+i+']" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'" class="dynamic-added"><td><input type="text" name="multiInput['+i+'][variable]" placeholder="Masukkan Value" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline"><img src="{{asset('asset/img/minus_circle.png')}}" alt=""></button></td></tr>');  
       });  
 
 
       $(document).on('click', '.btn', function(){  
            var button_id = $(this).attr("id");   
            $('#row'+button_id+'').remove();  
-      });  
-    });
+      });
 
 </script>
 @endsection
