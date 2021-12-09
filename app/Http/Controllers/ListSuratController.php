@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\surat;
 use App\Models\category;
 use App\Models\Value;
+use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 use DB;
+use File;
 class ListSuratController extends Controller
 {
     /**
@@ -56,6 +59,7 @@ class ListSuratController extends Controller
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
         ], $messages
     );
+
         $input = $request->all();
         $datasurat = surat::create($input);
         $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());
@@ -90,12 +94,14 @@ class ListSuratController extends Controller
     public function edit($id)
     {
         $folder = category::all();
+        //$datasurat =  surat::join('category', 'surat.id','=', 'category.id_category')->where('surat.id',$id)->get();
         $datasurat = surat::find($id);
+        $datasurats = DB::table('surat as st')->join('category as ct', 'ct.id', '=', 'st.id_category')->first();
         $file = $datasurat->file_surat;
         $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
         $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
         $htmlWriter->save('../resources/views/component/edit.html');
-        return view('user.edittemplate', compact ('datasurat','folder'));
+        return view('user.edittemplate', compact ('datasurat','folder','datasurats'));
     }
 
     public function tambah(Request $request, $id)
@@ -143,6 +149,11 @@ class ListSuratController extends Controller
     public function destroy($id)
     {   
         $datasurat = surat::find($id);
+        $dok = app_path().'../public/folder/'.$datasurat->file_surat;
+
+     if(\File::exists(public_path('folder/'.$datasurat->file_surat))){
+       \File::delete(public_path('folder/'.$datasurat->file_surat));
+    }
         $datasurat->delete();
         return redirect('/listsurat')->with('sukses','dataterhapus');
 

@@ -35,12 +35,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('listsurat', ListSuratController::class);
     Route::get('listsurat/delete/{id}', [ListSuratController::class,'destroy']);
+    Route::get('generate/{id}', [FilterSuratController::class,'generate']);
+    Route::post('generate/donwload/{id}', [FilterSuratController::class,'download']);
     Route::post('listsurat/{id}/tambah', [ListSuratController::class, 'tambah'])->name('tambahfile');
     Route::post('/tambahfolder', [FilterSuratController::class, 'tambah']);
-    Route::get('/edit', function () {
-        return view('user.edittemplate');
-    });
-    Route::get('/generate', function () {
-        return view('user.generate');
-    });
 });

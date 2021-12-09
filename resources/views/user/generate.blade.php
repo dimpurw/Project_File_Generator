@@ -14,29 +14,50 @@ html, body{
     justify-content: center;
     align-items: center;
 }
+.button-generate button{
+    border-radius: 8px;
+    width: 233px;
+    height: 71px;
+    border-radius: 8px;
+    background: #FFBE4B;
+}
+.button-generate h3{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 39px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 10px;
+}
 </style>
 <div class="container-fluid">
-    <form>
+    <form method="POST" name="add_name" id="add_name" action="{{url('generate/donwload/'.$datasurat->id)}}">
+    @csrf
         <div class="form-group">
             <div class="group1" style="display: block; padding-top: 50px;">
                 <div class="row justify-content-center mb-3 my-auto">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                         <div class="col-md-5 mx-auto">
                             <label for="tempat">Tempat Penulisan Surat</label>
-                            <input type="tempat" class="form-control" id="tempat">
+                            <input type="text" class="form-control" id="tempat">
                         </div>
                         <div class="col-md-5 mx-auto">
                             <label for="tujuan">Tujuan Surat</label>
-                            <input type="tujuan" class="form-control" id="tujuan">
+                            <input type="text" class="form-control" id="tujuan">
                         </div>
                 </div>
                 <hr>
@@ -45,21 +66,21 @@ html, body{
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <hr>
@@ -68,35 +89,35 @@ html, body{
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-5 mx-auto">
                         <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="tempat" class="form-control" id="tempat">
+                        <input type="text" class="form-control" id="tempat">
                     </div>
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="tujuan" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan">
                     </div>
                 </div>
                 <hr>
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="mx-5">
+            <div class="mx-5 my-auto">
                 <a href="#" id="toPage2" style="display: block"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
                 <a href="#" id="toPage1" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a>
                 <a href="#" id="toPage3" style="display: none"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
                 <a href="#" id="toPage2-2" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a> 
             </div>
             <div class="button-generate">
-                <input type="image" name="submit" src="{{asset('asset/img/Generate.png')}}">
+                <button class="btn-lg" type="submit" name="submit"><h3>GENERATE</h3></button>
             </div>   
         </div>
     </form>
