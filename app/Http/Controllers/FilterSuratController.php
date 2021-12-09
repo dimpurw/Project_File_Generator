@@ -36,4 +36,23 @@ class FilterSuratController extends Controller
         // dd($surat);
         return redirect(url('/listsurat'));
     }
+    public function generate(Request $request, $id)
+    {
+        $datasurat = surat::find($id);
+        $file = $datasurat->file_surat;
+        // $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('../public/folder/' . $file);
+        // $phpWord->setValue('{Tujuan_', 'tes1');
+        // return response()->download('../public/folder/'. $file);
+        return view ('user.generate',compact('datasurat')); 
+        
+        
+    }
+    public function download(Request $request, $id)
+    {
+        $datasurat = surat::find($id);
+        $file = $datasurat->file_surat;
+        $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('../public/folder/' . $file);
+        $phpWord->setValue('{Tujuan_', 'tes1');
+        return response()->download('../public/folder/'. $file);
+    }
 }

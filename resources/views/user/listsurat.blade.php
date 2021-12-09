@@ -107,7 +107,7 @@ height: 44px;
                     <i class="fa fa-pencil"></i>
                 </button>
               </a>
-              <a href="{{url('/generate')}}">
+              <a href="{{url('/generate/'.$surat->id)}}">
                 <button
                   type="button"
                   class="btn btn-floating btn-lg mt-5 mr-2"
