@@ -38,76 +38,32 @@ html, body{
 <div class="container-fluid">
     <form method="POST" name="add_name" id="add_name" action="{{url('generate/donwload/'.$datasurat->id)}}">
     @csrf
+    @foreach ($datavalue as $value)
         <div class="form-group">
             <div class="group1" style="display: block; padding-top: 50px;">
                 <div class="row justify-content-center mb-3 my-auto">
                     <div class="col-md-5 mx-auto">
-                        <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="text" class="form-control" id="tempat">
+                        <label for="tempat">{{$value->variable}}</label>
+                        <input type="text" class="form-control" id="tempat" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
                     </div>
+  
                     <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="tujuan">
+                        <input type="text" class="form-control" id="tujuan" name="">
                     </div>
                 </div>
                 <div class="row justify-content-center mb-3">
                         <div class="col-md-5 mx-auto">
                             <label for="tempat">Tempat Penulisan Surat</label>
-                            <input type="text" class="form-control" id="tempat">
+                            <input type="text" class="form-control" id="tempat" name="">
                         </div>
                         <div class="col-md-5 mx-auto">
                             <label for="tujuan">Tujuan Surat</label>
-                            <input type="text" class="form-control" id="tujuan">
+                            <input type="text" class="form-control" id="tujuan" name="">
                         </div>
                 </div>
                 <hr>
-            </div>
-            <div class="group2" style="display: none">
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-5 mx-auto">
-                        <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="text" class="form-control" id="tempat">
-                    </div>
-                    <div class="col-md-5 mx-auto">
-                        <label for="tujuan">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="tujuan">
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-5 mx-auto">
-                        <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="text" class="form-control" id="tempat">
-                    </div>
-                    <div class="col-md-5 mx-auto">
-                        <label for="tujuan">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="tujuan">
-                    </div>
-                </div>
-                <hr>
-            </div>   
-            <div class="group3" style="display: none">
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-5 mx-auto">
-                        <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="text" class="form-control" id="tempat">
-                    </div>
-                    <div class="col-md-5 mx-auto">
-                        <label for="tujuan">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="tujuan">
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-5 mx-auto">
-                        <label for="tempat">Tempat Penulisan Surat</label>
-                        <input type="text" class="form-control" id="tempat">
-                    </div>
-                    <div class="col-md-5 mx-auto">
-                        <label for="tujuan">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="tujuan">
-                    </div>
-                </div>
-                <hr>
-            </div>
+    @endforeach
         </div>
         <div class="row justify-content-end">
             <div class="mx-5 my-auto">
