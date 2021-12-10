@@ -106,20 +106,14 @@ class ListSuratController extends Controller
 
     public function tambah(Request $request, $id)
     {
-        $variable = [];
-
-        // foreach ($request->$input('variable') as $key => $value){
-        //     $variable["variable.{$key}"] = 'required';
-        // }
-
-        foreach ($request->variable as $key => $value) {
-            dd($value);
+        foreach ($request->multiInput as $value) { 
+            Value::create([
+                'id_surats' => $id,
+                'variable' => $value,
+            ]);
         }
-
-        // $input['id_surats'] = $id;
-        // $value = Value::create($input);
-        // $value->save();
-        // return redirect(url('/listsurat'));
+        
+        return redirect(url('/listsurat/' . $id . '/edit'));
     }
     /**
      * Update the specified resource in storage.
@@ -131,13 +125,23 @@ class ListSuratController extends Controller
     public function update(Request $request, $id)
     {
         $datasurat = surat::find($id);
-        $file = $datasurat->file_surat;
 
-        $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('../public/folder/' . $file);
+        if($request->file_surat != ''){        
+            $path = public_path().'/folder/';
 
-        $phpWord->setValue('{Tujuan_', 'tes1');
+            if($datasurat->file_surat != ''  && $datasurat->file_surat != null){
+                $file_old = $path.$datasurat->file_surat;
+                unlink($file_old);
+            }
 
-        $phpWord->saveAs('../public/folder/'. $file);
+            $file = $request->file_surat;
+            $filename = $file->getClientOriginalName();
+            $file->move($path, $filename);
+            
+            $datasurat->update(['file_surat' => $filename]);
+
+            return redirect(url('/listsurat/' . $id . '/edit'));
+        }
     }
 
     /**
