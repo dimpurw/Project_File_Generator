@@ -47,7 +47,7 @@ html, body{
                         <input type="text" class="form-control" id="tempat" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
                     </div>
   
-                    <div class="col-md-5 mx-auto">
+                    <!-- <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
                         <input type="text" class="form-control" id="tujuan" name="">
                     </div>
@@ -62,7 +62,7 @@ html, body{
                             <input type="text" class="form-control" id="tujuan" name="">
                         </div>
                 </div>
-                <hr>
+                <hr> -->
     @endforeach
         </div>
         <div class="row justify-content-end">
