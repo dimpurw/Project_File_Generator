@@ -16,8 +16,8 @@
         <div role="tabpanel" class="tab-pane pb-4 {{ $surat->id == 0 ? 'active' : '' }}" id="tab{{$surat->id}}" aria-labelledby="{{$surat->id}}-tab" >
           @foreach($surat->categorys as $item)
           <div class="card row" style="height: 117px;margin-top: 20px" onclick="mydisplay(document.getElementById('icon-display'+{{$item->id}}))">
-            <div class="card-body pt-2 col-6"  @if($jenis == 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">
-                  <h4 style="font-weight: normal; font-size: 18px;">{{substr($item->file_surat,0,35)}}</h>
+            <div class="card-body pt-2 col-6"  @if($jenis == 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @elseif($jenis == 2) style="border-left: 16px solid #9FFFBE!important;text-align: justify;"  @endif style="border-left: 16px solid #0AD729 !important;text-align: justify;">
+                  <h4 style="font-weight: normal; font-size: 18px;">{{substr($item->file_surat,0,35)}}</h4>
                   <span style="font-weight: 300; font-size: 14px;"><p>Last edited {{$item->updated_at}} - {{$item->users->name}}</p> <a href="#" target="_blank" style="color: #FFBE4B;"></a></span>
                   <p >{{substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry', 0, 55) }}...</p>
             </div>
@@ -61,6 +61,7 @@
         @endforeach        
       </div>
     </div>
+
     <!-- tombol modal tambah surat -->
      @include('component.modal')
     <!-- nav tab -->
