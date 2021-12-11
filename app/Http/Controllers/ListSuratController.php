@@ -51,6 +51,7 @@ class ListSuratController extends Controller
 
          $this->validate($request,[         
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
+            'id_category'=>'required',
         ], $messages
     );
         $datasurat = surat::create($request->all());
