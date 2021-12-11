@@ -1,4 +1,4 @@
- <!--  @foreach($folder as $surat)
+  @foreach($folder as $surat)
           <?php
             $jenis = $surat->id_category;
           ?>
@@ -49,4 +49,4 @@
             </div>
           </div>
         </div>
-        @endforeach -->
+        @endforeach

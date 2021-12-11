@@ -13,12 +13,12 @@
         <!-- filter surat -->
         @foreach($datasurat as $surat)
           <?php $jenis = $surat->id;?>
-        <div role="tabpanel" class="tab-pane pb-4 {{ $surat->id == 1 ? 'active' : '' }}" id="tab{{$surat->id}}" aria-labelledby="{{$surat->id}}-tab" >
+        <div role="tabpanel" class="tab-pane pb-4 {{ $surat->id == 0 ? 'active' : '' }}" id="tab{{$surat->id}}" aria-labelledby="{{$surat->id}}-tab" >
           @foreach($surat->categorys as $item)
           <div class="card row" style="height: 117px;margin-top: 20px" onclick="mydisplay(document.getElementById('icon-display'+{{$item->id}}))">
-            <div class="card-body pt-2 col-6"  @if($jenis== 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">
+            <div class="card-body pt-2 col-6"  @if($jenis == 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @endif style="border-left: 16px solid #9FFFBE!important;text-align: justify;">
                   <h4 style="font-weight: normal; font-size: 18px;">{{substr($item->file_surat,0,35)}}</h>
-                  <span style="font-weight: 300; font-size: 14px;">Last edited {{$item->updated_at}} - {{$item->users->name}} <a href="#" target="_blank" style="color: #FFBE4B;"></a></span>
+                  <span style="font-weight: 300; font-size: 14px;"><p>Last edited {{$item->updated_at}} - {{$item->users->name}}</p> <a href="#" target="_blank" style="color: #FFBE4B;"></a></span>
                   <p >{{substr('Lorem Ipsum is simply dummy text of the printing and typesetting industry', 0, 55) }}...</p>
             </div>
             <div class="card-body col-md-7 icon-display"  id="icon-display{{ $item->id }}" style="background-color: #E5E5E5;left: 45;border:none;display: none;">
