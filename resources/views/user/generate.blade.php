@@ -50,9 +50,9 @@ html, body{
                     <!-- <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
                         <input type="text" class="form-control" id="tujuan" name="">
-                    </div>
+                    </div> -->
                 </div>
-                <div class="row justify-content-center mb-3">
+                <!-- <div class="row justify-content-center mb-3">
                         <div class="col-md-5 mx-auto">
                             <label for="tempat">Tempat Penulisan Surat</label>
                             <input type="text" class="form-control" id="tempat" name="">
