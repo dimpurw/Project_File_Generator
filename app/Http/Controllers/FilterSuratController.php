@@ -44,7 +44,7 @@ class FilterSuratController extends Controller
         $max= DB::table('values as v')->where('id_surats',$id)->count('id_surats');
         $file = $datasurat->file_surat;
         $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('../public/folder/' . $file);
-        // $data = $request->except('_token');
+        $data = $request->except('_token');
         // dd($data);
         // for ($i=0; $i > $max; $i++){
         //     foreach($data as $isi){
@@ -56,30 +56,32 @@ class FilterSuratController extends Controller
         //         };
         //     };
         // };
-
+        foreach ($datavalue as $value){
+            $phpWord->setValue($value->variable, $request->get($value->variable));
+        };
+        $phpWord->saveAs('../public/folder/new/'. $file);
+        return response()->download('../public/folder/new/'. $file);
         
-        $name = $datavalue->first();
-        $namea =$name->variable;
+        
+        // $name = $datavalue->first();
+        // $namea =$name->variable;
         // var_dump($request->get($namea));
         // var_dump($request->get($namea[0]));
-        $request = $request->except('_token');
-        foreach ($request as $key => $value) {
-            dd($key, $value);
-        }
-        return $request->get("{Tempat}");
-        $count = count($request->get($namea));
+        // $request = $request->except('_token');
+        // foreach ($request as $key => $value) {
+        //     dd($key, $value);
+        // }
+        // return $request->get("{Tempat}");
+        // $count = count($request->get($namea));
         // dd($request);
-        for ($i=0; $i < $count ; $i++) { 
-            foreach ($datavalue as $key => $variab) {
-                $var = $variab->variable;
-                $varisi = $request->get($var[$i]);
-                // var_dump($var, $varisi);
-                $phpWord->setValue($var, $request->get($datavalue->var[$i]));
-            }
-        }
+        // for ($i=0; $i < $count ; $i++) { 
+        //     foreach ($datavalue as $key => $variab) {
+        //         $var = $variab->variable;
+        //         $varisi = $request->get($var[$i]);
+        //         var_dump($var, $varisi);
+        //         $phpWord->setValue($var, $request->get($datavalue->var[$i]));
+        //     }
+        // }
         // $length = count($request->name.'[]');
-        // $phpWord->saveAs('../public/folder/new/'. $file);
-        // return response()->download('../public/folder/new/'. $file);
-        
     }
 }
