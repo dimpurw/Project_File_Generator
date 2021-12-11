@@ -41,12 +41,12 @@ html, body{
   
         <div class="form-group">
             <div class="group1" style="display: block; padding-top: 50px;">
-                <div class="row">
+                <div class="row justify-content-md-center">
                     @foreach ($datavalue as $value)
-                    <div class="col-sm-6">
+                    <div class="col-md-auto pr-6">
                         <!-- <div class="align-self-center "> -->
                             <label for="tempat">{{$value->variable}}</label>
-                            <input type="text" class="form-control" id="tempat" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
+                            <input type="text" class="form-control" id="isi" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
                         <!-- </div> -->
                     </div>
                     @endforeach
@@ -68,12 +68,12 @@ html, body{
                 <hr>
         </div>
         <div class="row justify-content-end">
-            <div class="mx-5 my-auto">
+            <!-- <div class="mx-5 my-auto">
                 <a href="#" id="toPage2" style="display: block"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
                 <a href="#" id="toPage1" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a>
                 <a href="#" id="toPage3" style="display: none"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
                 <a href="#" id="toPage2-2" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a> 
-            </div>
+            </div> -->
             <div class="button-generate">
                 <button class="btn-lg" type="submit" name="submit"><h3>GENERATE</h3></button>
             </div>   
@@ -81,7 +81,7 @@ html, body{
     </form>
 </div>
 @endsection
-@section('page-script')
+<!-- @section('page-script')
 <script>
             $('#toPage2').click(function() {
                 $('.group1').show();
@@ -119,4 +119,4 @@ html, body{
                 $('#toPage3').hide();
             });
 </script>
-@endsection
+@endsection -->
