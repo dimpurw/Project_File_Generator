@@ -108,26 +108,26 @@
 				@method('PATCH')
 				 @csrf
                  <div class="form-group row text-left">
-    <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
-    <div class="col-sm-8">
-       
-      <select class="form-control" id="JenisSurat" name="id_category"  disabled="">
-		<option value="{{$datasurats->jenis}}" selected>{{$datasurats->jenis}}</option>
-      
-    </select>
-    </div>
-  </div>
-  <div class="form-group row text-left">
-    <label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
-    <div class="col-sm-8">
-      <input type="file" class="form-control" id="filesurat" name="file_surat" placeholder="comp/desktop/1111.docx">
-    </div>
-  </div>
-  <div class="col-sm-12 text-right">
-  <button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Upload</button></div>
-</form>
+					<label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
+					<div class="col-sm-8">
+						
+						<select class="form-control" id="JenisSurat" name="id_category"  disabled="">
+							<option value="{{$datasurats->jenis}}" selected>{{$datasurats->jenis}}</option>
+						
+						</select>
+					</div>
+				</div>
+				<div class="form-group row text-left">
+					<label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
+					<div class="col-sm-8">
+						<input type="file" class="form-control" id="filesurat" name="file_surat" placeholder="comp/desktop/1111.docx">
+					</div>
+				</div>
+			<div class="col-sm-12 text-right">
+			<button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Upload</button></div>
+			</form>
             </div>
-      </div>
+      	</div>
         </div>
     </div>
   </div>

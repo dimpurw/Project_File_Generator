@@ -9,21 +9,6 @@ use DB;
 
 class FilterSuratController extends Controller
 {
-     public function perusahaan()
-    {
-        $datasurat = surat::where('JenisSurat','=','Perusahaan')->get();
-        return view('user.listsurat.perusahaan', compact('datasurat'));
-    }
-    public function internal()
-    {
-        $datasurat = surat::where('JenisSurat','=','Internal')->get();        
-        return view('user.listsurat.perusahaan', compact('datasurat'));
-    }
-    public function personal()
-    {
-        $datasurat = surat::where('JenisSurat','=','Personal')->get();        
-        return view('user.listsurat.perusahaan', compact('datasurat'));
-    }
      public function tambah(Request $request)
     {$messages = [
     'required' => 'Silahkan Masukkan Nama Folder !!!',
@@ -35,9 +20,9 @@ class FilterSuratController extends Controller
     );
         $input = $request->all();
         $surat = category::create($input);
-        // dd($surat);
         return redirect(url('/listsurat'));
     }
+    
     public function generate(Request $request, $id)
     {
         $datasurat = surat::find($id);

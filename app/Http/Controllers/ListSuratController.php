@@ -18,17 +18,11 @@ class ListSuratController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $datasurat = surat::latest()->get();
-        $folder = category::all();
-      //  $suratperusahaan = surat::where('JenisSurat','=','Perusahaan')->get();
-        // $suratinternal = surat::where('JenisSurat','=','Internal')->get();        
-        //$filters = surat::select('JenisSurat')->get();
-        // $filter = $filter->unique();
-         // $filters =surat::select('JenisSurat')->where('JenisSurat', '=', 'Perusahaan')->pluck('JenisSurat')->first();
-         //  $internal =surat::select('JenisSurat')->where('JenisSurat', '=', 'Internal')->pluck('JenisSurat')->first();
-        //return view('user.listsurat.allq', compact('datasurat','suratperusahaan','suratinternal','filters', 'internal'));
-        return view('user.listsurat', compact('datasurat','folder'));
+    {   
+        $folder = surat::latest()->get();
+        $all = 'All';
+        $datasurat = category::with('categorys')->get();
+        return view('user.listsurat', compact('datasurat','folder','all'));
 
     }
 
@@ -59,9 +53,8 @@ class ListSuratController extends Controller
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
         ], $messages
     );
-
-        $input = $request->all();
-        $datasurat = surat::create($input);
+        $datasurat = surat::create($request->all());
+        //$datasurat->judul_surat = $request->file_surat;
         $request->file('file_surat')->move('folder', $request->file('file_surat')->getClientOriginalName());
         $datasurat->file_surat = $request->file('file_surat')->getClientOriginalName();
         $datasurat->save();
@@ -81,7 +74,6 @@ class ListSuratController extends Controller
         $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
         $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
         $htmlWriter->save('../resources/views/component/show.html');
-        // dd($datasurat->file_surat);
         return view('user.view_document', compact('datasurat'));
     }
 
@@ -94,7 +86,6 @@ class ListSuratController extends Controller
     public function edit($id)
     {
         $folder = category::all();
-        //$datasurat =  surat::join('category', 'surat.id','=', 'category.id_category')->where('surat.id',$id)->get();
         $datasurat = surat::find($id);
         $datasurats = DB::table('surat as st')->join('category as ct', 'ct.id', '=', 'st.id_category')->first();
         $file = $datasurat->file_surat;
@@ -163,9 +154,5 @@ class ListSuratController extends Controller
 
     }
 
-     public function perusahaan()
-    {
-        $datasurat = surat::latest()->paginate(5);
-        return view('user.listsurat.perusahaan', compact('datasurat'));
-    }
+
 }

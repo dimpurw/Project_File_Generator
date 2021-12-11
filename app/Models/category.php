@@ -10,8 +10,8 @@ class category extends Model
    protected $table = 'category';
     protected $fillable = ['jenis'];
 
-    public function surat()
+    public function categorys()
     {
-        return $this->belongsto(surat::class);
+        return $this->hasMany(surat::class, 'id_category');
     }
 }
