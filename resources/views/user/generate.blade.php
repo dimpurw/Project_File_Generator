@@ -38,15 +38,18 @@ html, body{
 <div class="container-fluid">
     <form method="POST" name="add_name" id="add_name" action="{{url('generate/donwload/'.$datasurat->id)}}">
     @csrf
-    @foreach ($datavalue as $value)
+  
         <div class="form-group">
             <div class="group1" style="display: block; padding-top: 50px;">
-                <div class="row justify-content-center mb-3 my-auto">
-                    <div class="col-md-5 mx-auto">
-                        <label for="tempat">{{$value->variable}}</label>
-                        <input type="text" class="form-control" id="tempat" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
+                <div class="row">
+                    @foreach ($datavalue as $value)
+                    <div class="col-sm-6">
+                        <!-- <div class="align-self-center "> -->
+                            <label for="tempat">{{$value->variable}}</label>
+                            <input type="text" class="form-control" id="tempat" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
+                        <!-- </div> -->
                     </div>
-  
+                    @endforeach
                     <!-- <div class="col-md-5 mx-auto">
                         <label for="tujuan">Tujuan Surat</label>
                         <input type="text" class="form-control" id="tujuan" name="">
@@ -61,9 +64,8 @@ html, body{
                             <label for="tujuan">Tujuan Surat</label>
                             <input type="text" class="form-control" id="tujuan" name="">
                         </div>
-                </div>
-                <hr> -->
-    @endforeach
+                </div> -->
+                <hr>
         </div>
         <div class="row justify-content-end">
             <div class="mx-5 my-auto">
