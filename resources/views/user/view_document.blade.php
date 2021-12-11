@@ -28,6 +28,11 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 .active{
 	background-color: #FFE5B6;
 }
+
+.card > img{
+	width: 250px; 
+	height: 201px;
+}
 </style>
 <div class="container-fluid d-flex justify-content-center" style="height: 100%" >
     <div class="col-7">
