@@ -34,6 +34,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('listsurat', ListSuratController::class);
+     Route::get('listsurat/folder/{id}',  [FilterSuratController::class,'filter']);
     Route::get('listsurat/delete/{id}', [ListSuratController::class,'destroy']);
     Route::get('generate/{id}', [FilterSuratController::class,'generate']);
     Route::post('generate/donwload/{id}', [FilterSuratController::class,'download']);

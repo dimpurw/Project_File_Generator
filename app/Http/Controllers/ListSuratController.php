@@ -20,9 +20,8 @@ class ListSuratController extends Controller
     public function index()
     {   
         $folder = surat::latest()->get();
-        $all = 'All';
         $datasurat = category::with('categorys')->get();
-        return view('user.listsurat', compact('datasurat','folder','all'));
+        return view('user.listsurat', compact('datasurat','folder'));
 
     }
 
