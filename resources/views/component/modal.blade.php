@@ -45,7 +45,7 @@
                 <label for="staticEmail" class="col-sm-3 col-form-label">Jenis Surat</label>
                 <div class="col-sm-8">
                   <select class="form-control" id="JenisSurat" name="id_category" value="">
-                    @foreach($datasurat as $folders)
+                    @foreach($folder as $folders)
                     <option value="{{$folders->id}}">{{$folders->jenis}}</option>
                     @endforeach
                   </select>

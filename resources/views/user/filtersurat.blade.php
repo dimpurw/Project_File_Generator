@@ -12,9 +12,9 @@
         <!-- filter surat -->
         @foreach($datasurat as $surat)
           <?php $jenis = $surat->id_category;?>
-        <div role="tabpanel" class="tab-pane  active" id="tab{{$surat->id_category}}" aria-labelledby="{{$surat->id_category}}-tab" >
+        <div role="tabpanel" class="tab-pane pb-3 active" id="tab{{$surat->id_category}}" aria-labelledby="{{$surat->id_category}}-tab" >
           
-          <div class="card row" style="height: 117px;margin-top: 20px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
+          <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
             <div class="card-body pt-2 col-6"  @if($jenis == 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @elseif($jenis == 2) style="border-left: 16px solid #9FFFBE!important;text-align: justify;"  @endif style="border-left: 16px solid #0AD729 !important;text-align: justify;">
                   <h4 style="font-weight: normal; font-size: 18px;">{{substr($surat->file_surat,0,35)}}</h4>
                   <span style="font-weight: 300; font-size: 14px;">Last edited {{$surat->updated_at}} - {{$surat->users->name}}<a href="#" target="_blank" style="color: #FFBE4B;"></a></span>
