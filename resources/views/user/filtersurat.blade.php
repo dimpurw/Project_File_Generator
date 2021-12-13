@@ -8,12 +8,10 @@
       <div class="tab-content">
         <!-- alert hapus -->
          @include('component.alert')
-      
         <!-- filter surat -->
         @foreach($datasurat as $surat)
           <?php $jenis = $surat->id_category;?>
         <div role="tabpanel" class="tab-pane pb-3 active" id="tab{{$surat->id_category}}" aria-labelledby="{{$surat->id_category}}-tab" >
-          
           <div class="card row" style="height: 117px" onclick="mydisplay(document.getElementById('icon-display'+{{$surat->id}}))">
             <div class="card-body pt-2 col-6"  @if($jenis == 1) style="border-left: 16px solid #7A7A7A!important;text-align: justify;" @elseif($jenis == 2) style="border-left: 16px solid #9FFFBE!important;text-align: justify;"  @endif style="border-left: 16px solid #0AD729 !important;text-align: justify;">
                   <h4 style="font-weight: normal; font-size: 18px;">{{substr($surat->file_surat,0,35)}}</h4>
@@ -55,26 +53,14 @@
               </a>
             </div>
           </div>
-         
         </div>
         @endforeach        
       </div>
     </div>
-
     <!-- tombol modal tambah surat -->
      @include('component.modal')
     <!-- nav tab -->
-  <div class="col-md-3 pr-0">
-  <ul class="nav flex-column nav-item me-3 float-right" id="myTab" role="tablist" style="border-radius:0px;width: 191px">
-  <li class="nav-item" role="presentation">
-        <a href="{{route('listsurat.index')}}" class="nav-link" id="0-tab"  role="tab" aria-controls="0" aria-selected="true" style="border-radius:0px">All</a></li>
-  @foreach($folder as $folders)
-      <li class="nav-item" role="presentation">
-        <a href="{{url('/listsurat/folder/'.$folders->id)}}" class="{{ Request::is('listsurat/folder/'.$folders->id) ? 'nav-link active' : 'nav-link' }}" id="{{$folders->id}}-tab"role="tab" aria-controls="{{$folders->id}}" aria-selected="false" style="border-radius:0px">{{$folders->jenis}}</a>
-      </li>
-  @endforeach
-  </ul>
-</div>
+ @include('component.sidebar')
   </div>
 </div>
 @endsection
