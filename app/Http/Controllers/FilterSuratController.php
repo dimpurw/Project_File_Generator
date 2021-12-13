@@ -9,6 +9,7 @@ use DB;
 
 class FilterSuratController extends Controller
 {
+    
      public function tambah(Request $request)
     {$messages = [
     'required' => 'Silahkan Masukkan Nama Folder !!!',
@@ -23,6 +24,13 @@ class FilterSuratController extends Controller
         return redirect(url('/listsurat'));
     }
     
+    public function filter($id)
+    {   
+        $folder = category::all();
+        $datasurat = category::findOrFail($id)->categorys;
+        return view('user.filtersurat', compact('datasurat','folder'));
+    }
+
     public function generate(Request $request, $id)
     {
         $datasurat = surat::find($id);

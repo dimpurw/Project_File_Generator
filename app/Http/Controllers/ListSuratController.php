@@ -19,10 +19,10 @@ class ListSuratController extends Controller
      */
     public function index()
     {   
-        $folder = surat::latest()->get();
-        $all = 'All';
+        $folder = category::all();
+        $surats = surat::latest()->get();
         $datasurat = category::with('categorys')->get();
-        return view('user.listsurat', compact('datasurat','folder','all'));
+        return view('user.listsurat', compact('datasurat','folder','surats'));
 
     }
 
@@ -51,6 +51,7 @@ class ListSuratController extends Controller
 
          $this->validate($request,[         
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
+            'id_category'=>'required',
         ], $messages
     );
         $datasurat = surat::create($request->all());
