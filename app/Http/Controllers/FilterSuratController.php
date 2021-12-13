@@ -6,7 +6,7 @@ use App\Models\Value;
 use App\Models\category;
 use Illuminate\Http\Request;
 use DB;
-
+use Redirect;
 class FilterSuratController extends Controller
 {
     
@@ -29,6 +29,12 @@ class FilterSuratController extends Controller
         $folder = category::all();
         $datasurat = category::findOrFail($id)->categorys;
         return view('user.filtersurat', compact('datasurat','folder'));
+    }
+
+    public function back()
+    {   
+        
+       return redirect('/listsurat');
     }
 
     public function generate(Request $request, $id)
