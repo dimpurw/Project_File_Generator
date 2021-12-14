@@ -45,6 +45,9 @@
 							<tr>
 								<td style="border : none;"><input type="text" name="multiInput[0]" placeholder="Tambah Value" class="form-control" /></td>
 								<td style="border : none;"><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
+								@if($errors->has('variable'))
+									<span class="alert-danger" style="font-size: 12px">{{($errors->first('variable'))}}</span>
+								@endif
 							</tr>
 						</table>
 						<div class="card mt-5" style="width: 18rem;">
@@ -121,8 +124,8 @@
 						
 						<select class="form-control" id="JenisSurat" name="id_category">
 						@foreach($folder as $folders)
-                    <option value="{{$folders->id}}">{{$folders->jenis}}</option>
-                    @endforeach
+						<option value="{{$folders->id}}">{{$folders->jenis}}</option>
+						@endforeach
 						
 						</select>
 					</div>
@@ -131,6 +134,10 @@
 					<label for="inputPassword" class="col-sm-3 col-form-label">Pilih File</label>
 					<div class="col-sm-8">
 						<input type="file" class="form-control" id="filesurat" name="file_surat" placeholder="comp/desktop/1111.docx">
+						<span class="form-text" style="font-size: 12px">format file: docx,doc,docm,dot</span>
+						@if($errors->has('file_surat'))
+							<span class="alert-danger" style="font-size: 12px">{{($errors->first('file_surat'))}}</span>
+						@endif
 					</div>
 				</div>
 			<div class="col-sm-12 text-right">

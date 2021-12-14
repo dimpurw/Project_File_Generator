@@ -99,6 +99,16 @@ class ListSuratController extends Controller
 
     public function tambah(Request $request, $id)
     {
+        $messages = [
+            'required' => 'Silahkan isi bidang ini !!!',
+            'mimes' => 'Format File tidak cocok'
+        ];
+
+        $this->validate($request,[         
+            'variable'=>'required',
+            ], $messages
+        );
+
         foreach ($request->multiInput as $value) { 
             Value::create([
                 'id_surats' => $id,
@@ -117,6 +127,17 @@ class ListSuratController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = [
+            'required' => 'Silahkan Pilih File !!!',
+            'mimes' => 'Format File tidak cocok'
+        ];
+
+        $this->validate($request,[         
+            'file_surat'=>'required|mimes:docx,doc,docm,dotx',
+            ], $messages
+        );
+
+
         $datasurat = surat::find($id);
 
         if($request->file_surat != ''){        
