@@ -47,6 +47,14 @@
 								<td style="border : none;"><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
 							</tr>
 						</table>
+						<div class="card mt-5" style="width: 18rem;">
+						<div class="card-body">
+							<h5 class="card-title">Daftar Variable</h5>
+							@foreach($value as $v)
+							<p class="card-text">{{$v->variable}}</p>
+							@endforeach
+						</div>
+						</div>
 					</div>
 				</div> 
 			</div>

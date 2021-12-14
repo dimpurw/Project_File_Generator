@@ -89,11 +89,12 @@ class ListSuratController extends Controller
         $folder = category::all();
         $datasurat = surat::find($id);
         $datasurats = DB::table('surat as st')->join('category as ct', 'ct.id', '=', 'st.id_category')->first();
+        $value = Value::where('id_surats',$id)->get();
         $file = $datasurat->file_surat;
         $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
         $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
         $htmlWriter->save('../resources/views/component/edit.html');
-        return view('user.edittemplate', compact ('datasurat','folder','datasurats'));
+        return view('user.edittemplate', compact ('datasurat','folder','datasurats', 'value'));
     }
 
     public function tambah(Request $request, $id)
@@ -130,7 +131,10 @@ class ListSuratController extends Controller
             $filename = $file->getClientOriginalName();
             $file->move($path, $filename);
             
+            // $value = Value::where('id_surats',$id)->get();
+
             $datasurat->update(['file_surat' => $filename]);
+            DB::table('values')->where('id_surats', $id)->delete();
 
             return redirect(url('/listsurat/' . $id . '/edit'));
         }
