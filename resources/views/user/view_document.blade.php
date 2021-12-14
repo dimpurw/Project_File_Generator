@@ -28,7 +28,6 @@
 .active{
 	background-color: #FFE5B6;
 }
-
 </style>
 <div class="container-fluid d-flex justify-content-center" style="height: 100%" >
     <div class="col-7">
