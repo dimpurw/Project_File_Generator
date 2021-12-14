@@ -133,7 +133,7 @@ class ListSuratController extends Controller
             
             // $value = Value::where('id_surats',$id)->get();
 
-            $datasurat->update(['file_surat' => $filename]);
+            $datasurat->update(['file_surat' => $filename,'id_category'=>$request->id_category]);
             DB::table('values')->where('id_surats', $id)->delete();
 
             return redirect(url('/listsurat/' . $id . '/edit'));
