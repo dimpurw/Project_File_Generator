@@ -40,39 +40,44 @@ html, body{
     @csrf
   
         <div class="form-group">
-            <div class="group1" style="display: block; padding-top: 50px;">
+            <div class="group1" style="display: block; padding-top: 75px;"  id="dynamic_field" >
                 <div class="row justify-content-md-center">
                     @foreach ($datavalue as $value)
                     <div class="col-md-auto pr-6">
-                        <!-- <div class="align-self-center "> -->
                             <label for="tempat">{{$value->variable}}</label>
                             <input type="text" class="form-control" id="isi" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
-                        <!-- </div> -->
                     </div>
                     @endforeach
-                    <!-- <div class="col-md-5 mx-auto">
-                        <label for="tujuan">Tujuan Surat</label>
-                        <input type="text" class="form-control" id="tujuan" name="">
-                    </div> -->
                 </div>
-                <!-- <div class="row justify-content-center mb-3">
-                        <div class="col-md-5 mx-auto">
-                            <label for="tempat">Tempat Penulisan Surat</label>
-                            <input type="text" class="form-control" id="tempat" name="">
-                        </div>
-                        <div class="col-md-5 mx-auto">
-                            <label for="tujuan">Tujuan Surat</label>
-                            <input type="text" class="form-control" id="tujuan" name="">
-                        </div>
-                </div> -->
                 <hr>
+            </div>
+            <!-- <div class="group2" style="display: none;">
+                <div class="row justify-content-md-center">
+                    @foreach ($datavalue as $value)
+                    <div class="col-md-auto pr-6">
+                            <label for="tempat">{{$value->variable}}</label>
+                            <input type="text" class="form-control" id="isi" name="{{$value->variable}}[1]" placeholder='{{$value->variable}}'>
+                    </div>
+                    @endforeach
+                </div>
+                <hr>
+            </div>  
+            <div class="group3" style="display: none;">
+                <div class="row justify-content-md-center">
+                    @foreach ($datavalue as $value)
+                    <div class="col-md-auto pr-6">
+                            <label for="tempat">{{$value->variable}}</label>
+                            <input type="text" class="form-control" id="isi" name="{{$value->variable}}[2]" placeholder='{{$value->variable}}'>
+                    </div>
+                    @endforeach
+                </div>
+                <hr>
+            </div> -->
         </div>
         <div class="row justify-content-end">
             <!-- <div class="mx-5 my-auto">
-                <a href="#" id="toPage2" style="display: block"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
-                <a href="#" id="toPage1" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a>
-                <a href="#" id="toPage3" style="display: none"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
-                <a href="#" id="toPage2-2" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a> 
+                <a href="#" id="remove" class="btn"><img src="{{asset('asset/img/minus.png')}}" alt=""></a>
+                <a href="#"  id="add"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
             </div> -->
             <div class="button-generate">
                 <button class="btn-lg" type="submit" name="submit"><h3>GENERATE</h3></button>
@@ -80,6 +85,22 @@ html, body{
         </div>
     </form>
 </div>
+@endsection
+@section('page-script')
+<script>
+      var i=0;  
+
+      $('#add').click(function(){  
+           ++i;  
+           $('#dynamic_field').append('<div id="row'+i+'" class="dynamic-added"><div class="row justify-content-md-center" > @foreach ($datavalue as $value) <div class="col-md-auto pr-6"><label for="tempat">{{$value->variable}}</label><input type="text" class="form-control" id="isi" name="{{$value->variable}}['+i+']" placeholder="{{$value->variable}}"></div>@endforeach</div><button type="button" name="remove" id="'+i+'" class="btn btn-primary-outline" style="background-color: #E5E5E5;"><img src="{{asset('asset/img/minus.png')}}" alt=""></button><hr></div>');  
+      });  
+
+
+       $(document).on('click', '.btn', function(){
+           var button_id = $(this).attr("id");   
+           $('#row'+button_id+'').remove();  
+      });
+</script>
 @endsection
 <!-- @section('page-script')
 <script>
