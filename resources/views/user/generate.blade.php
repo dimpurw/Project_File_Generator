@@ -47,7 +47,13 @@ html, body{
                         <!-- <div class="align-self-center "> -->
                             <label for="tempat">{{$value->variable}}</label>
                             <input type="text" class="form-control" id="isi" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
+<<<<<<< Updated upstream
                         <!-- </div> -->
+=======
+                            @if($errors->has('error'))
+                                    <span class="alert-danger" style="font-size: 12px">{{($errors->first('error'))}}</span>
+                            @endif
+>>>>>>> Stashed changes
                     </div>
                     @endforeach
                     <!-- <div class="col-md-5 mx-auto">
@@ -66,6 +72,7 @@ html, body{
                         </div>
                 </div> -->
                 <hr>
+<<<<<<< Updated upstream
         </div>
         <div class="row justify-content-end">
             <!-- <div class="mx-5 my-auto">
@@ -74,12 +81,19 @@ html, body{
                 <a href="#" id="toPage3" style="display: none"><img src="{{asset('asset/img/plus.png')}}" alt=""></a>
                 <a href="#" id="toPage2-2" style="display: none"><img src="{{asset('asset/img/minus.png')}}" alt=""></a> 
             </div> -->
+=======
+            </div>
+
+        </div>
+        <div class="row justify-content-end">
+>>>>>>> Stashed changes
             <div class="button-generate">
                 <button class="btn-lg" type="submit" name="submit"><h3>GENERATE</h3></button>
             </div>   
         </div>
     </form>
 </div>
+<<<<<<< Updated upstream
 @endsection
 <!-- @section('page-script')
 <script>
@@ -120,3 +134,6 @@ html, body{
             });
 </script>
 @endsection -->
+=======
+@endsection
+>>>>>>> Stashed changes

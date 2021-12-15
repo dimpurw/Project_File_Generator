@@ -25,14 +25,19 @@ class FilterSuratController extends Controller
     
     public function generate(Request $request, $id)
     {
+        
+        $messages = [
+            'required' => 'Form Input Tidak Boleh Kosong',
+        ];
+
+        $this->validate($request,[         
+            'error'=>'required',
+            ], $messages
+        );
         $datasurat = surat::find($id);
         $datavalue = DB::table('values as v')->join('surat as s', 's.id', '=', 'v.id_surats')->where('id_surats',$id)->get();
-        // $file = $datasurat->file_surat;
-        // $phpWord = new \PhpOffice\PhpWord\TemplateProcessor('../public/folder/' . $file);
-        // $phpWord->setValue('{Tujuan_', 'tes1');
-        // return response()->download('../public/folder/'. $file);
         return view ('user.generate',compact('datasurat','datavalue')); 
-        // dd($datavalue);
+        
         
         
     }
