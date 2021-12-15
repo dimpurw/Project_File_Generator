@@ -16,8 +16,8 @@
 .card{
 	height: 100%;
 	background: #FFFFFF;
-border: 1px solid #C4C4C4;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border: 1px solid #C4C4C4;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .box{
 	 width: 50px;
@@ -27,11 +27,6 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .active{
 	background-color: #FFE5B6;
-}
-
-.card > img{
-	width: 250px; 
-	height: 201px;
 }
 </style>
 <div class="container-fluid d-flex justify-content-center" style="height: 100%" >
@@ -67,7 +62,7 @@ box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 		</div>
 	</div>
     <div class="d-flex justify-content-end mt-5">
-      <button type="button" class="btn-lg" style="background-color: #FFBE4B; color: #FFFFFF;" >GENERATE</button>     
+      <a href="{{url('/generate/'.$datasurat->id)}}"><button type="button" class="btn-lg" style="background-color: #FFBE4B; color: #FFFFFF;" >GENERATE</button></a>     
     </div>
 </div>
 @endsection

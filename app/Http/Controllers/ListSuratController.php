@@ -19,10 +19,10 @@ class ListSuratController extends Controller
      */
     public function index()
     {   
-        $folder = surat::latest()->get();
-        $all = 'All';
+        $folder = category::all();
+        $surats = surat::latest()->get();
         $datasurat = category::with('categorys')->get();
-        return view('user.listsurat', compact('datasurat','folder','all'));
+        return view('user.listsurat', compact('datasurat','folder','surats'));
 
     }
 
@@ -51,6 +51,7 @@ class ListSuratController extends Controller
 
          $this->validate($request,[         
             'file_surat'=>'required|mimes:docx,doc,docm,dotx',
+            'id_category'=>'required',
         ], $messages
     );
         $datasurat = surat::create($request->all());
@@ -88,15 +89,26 @@ class ListSuratController extends Controller
         $folder = category::all();
         $datasurat = surat::find($id);
         $datasurats = DB::table('surat as st')->join('category as ct', 'ct.id', '=', 'st.id_category')->first();
+        $value = Value::where('id_surats',$id)->get();
         $file = $datasurat->file_surat;
         $phpWord = \PhpOffice\PhpWord\IOFactory::load('../public/folder/' . $file);
         $htmlWriter = new \PhpOffice\PhpWord\Writer\HTML($phpWord);
         $htmlWriter->save('../resources/views/component/edit.html');
-        return view('user.edittemplate', compact ('datasurat','folder','datasurats'));
+        return view('user.edittemplate', compact ('datasurat','folder','datasurats', 'value'));
     }
 
     public function tambah(Request $request, $id)
     {
+        $messages = [
+            'required' => 'Silahkan isi bidang ini !!!',
+            'mimes' => 'Format File tidak cocok'
+        ];
+
+        $this->validate($request,[         
+            'variable'=>'required',
+            ], $messages
+        );
+
         foreach ($request->multiInput as $value) { 
             Value::create([
                 'id_surats' => $id,
@@ -115,6 +127,17 @@ class ListSuratController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $messages = [
+            'required' => 'Silahkan Pilih File !!!',
+            'mimes' => 'Format File tidak cocok'
+        ];
+
+        $this->validate($request,[         
+            'file_surat'=>'required|mimes:docx,doc,docm,dotx',
+            ], $messages
+        );
+
+
         $datasurat = surat::find($id);
 
         if($request->file_surat != ''){        
@@ -129,7 +152,10 @@ class ListSuratController extends Controller
             $filename = $file->getClientOriginalName();
             $file->move($path, $filename);
             
-            $datasurat->update(['file_surat' => $filename]);
+            // $value = Value::where('id_surats',$id)->get();
+
+            $datasurat->update(['file_surat' => $filename,'id_category'=>$request->id_category]);
+            DB::table('values')->where('id_surats', $id)->delete();
 
             return redirect(url('/listsurat/' . $id . '/edit'));
         }
