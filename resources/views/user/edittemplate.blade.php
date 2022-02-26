@@ -45,9 +45,9 @@
 							<tr>
 								<td style="border : none;"><input type="text" name="multiInput[0]" placeholder="Tambah Value" class="form-control" /></td>
 								<td style="border : none;"><button type="button" name="add" id="add" class="btn btn-primary-outline"><img src="{{asset('asset/img/plus_circle.png')}}"></button></td>
-								@if($errors->has('variable'))
-									<span class="alert-danger" style="font-size: 12px">{{($errors->first('variable'))}}</span>
-								@endif
+								<!-- @if($errors->has('value'))
+									<span class="alert-danger" style="font-size: 12px">{{($errors->first('value'))}}</span>
+								@endif -->
 							</tr>
 						</table>
 						<div class="card mt-5" style="width: 18rem;">

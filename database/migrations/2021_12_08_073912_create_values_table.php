@@ -16,6 +16,7 @@ class CreateValuesTable extends Migration
         Schema::create('values', function (Blueprint $table) {
             $table->id();
             $table->biginteger('id_surats')->unsigned();
+            $table->foreign('id_surats')->references('id')->on('surat');
             $table->string('variable');
             $table->timestamps();
         });

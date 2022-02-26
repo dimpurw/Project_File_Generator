@@ -99,15 +99,15 @@ class ListSuratController extends Controller
 
     public function tambah(Request $request, $id)
     {
-        $messages = [
-            'required' => 'Silahkan isi bidang ini !!!',
-            'mimes' => 'Format File tidak cocok'
-        ];
+        // $messages = [
+        //     'required' => 'Silahkan isi bidang ini !!!',
+        //     'mimes' => 'Format File tidak cocok'
+        // ];
 
-        $this->validate($request,[         
-            'variable'=>'required',
-            ], $messages
-        );
+        // $this->validate($request,[         
+        //     'multiInput'=>'required',
+        //     ], $messages
+        // );
 
         foreach ($request->multiInput as $value) { 
             Value::create([

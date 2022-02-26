@@ -46,6 +46,9 @@ html, body{
                     <div class="col-md-auto pr-6">
                             <label for="tempat">{{$value->variable}}</label>
                             <input type="text" class="form-control" id="isi" name="{{$value->variable}}" placeholder='{{$value->variable}}'>
+                            <!--  @if($errors->has('generate'))
+                    <span class="alert-danger" style="font-size: 12px">{{($errors->first('generate'))}}</span>
+                  @endif -->
                     </div>
                     @endforeach
                 </div>

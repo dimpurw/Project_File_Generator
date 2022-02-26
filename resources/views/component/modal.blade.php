@@ -93,7 +93,7 @@
                 </div>
               </div>
               <div class="col-sm-12 text-right">
-                <button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Upload</button>
+                <button type="submit" type="submit" class="btn btn-primary mb-2" style="width: 50%">Create</button>
               </div>
             </form>
           </div>
